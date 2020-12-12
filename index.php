@@ -14,7 +14,7 @@ exit(date('y m d h:s:i a', $lastWeek));
 define("APP_BASE_PATH", __DIR__.'/');
 
 
-define("VERSION", '2.3.3');
+define("VERSION", '1.0.0');
 
 //exit(file_get_contents('http://streaming.radionomy.com/JamendoLounge?lang=en-US%2cen%3bq%3d0.9'));
 include_once "app/request.php";

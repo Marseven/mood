@@ -13,6 +13,14 @@
     <link rel="apple-touch-icon-precomposed" href="<?php echo $favicon?>">
     <link rel="icon" href="<?php echo $favicon?>">
 
+    <link rel="manifest" href="manifest.json">
+    <script>
+        //if browser support service worker
+        if('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        };
+    </script>
+
     <!-- Bootstrap core CSS -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700" rel="stylesheet">
     <link href="<?php echo assetUrl('assets/css/plugin.css')?>?time=<?php echo fileatime(path('assets/css/plugin.css'))?>" rel="stylesheet">
