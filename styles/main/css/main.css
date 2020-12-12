@@ -132,8 +132,8 @@ label{
     background: #fff;
 }
 .btn-primary:hover, .btn-primary:active{
-    background: #FF330A !important;
-    border-color:#FF330A !important;;
+    background: #003668 !important;
+    border-color:#003668 !important;;
 }
 .round-sm{
     -webkit-border-radius: 5px;
@@ -151,10 +151,10 @@ label{
     position: relative;
 }
 #nprogress .bar {
-    background: #FE5137;
+    background: #003668;
 }
 input.cmn-toggle-round-flat:checked + label {
-    background-color:grey;
+    background-color:white;
 }
 input.cmn-toggle-round-flat:checked + label:after {
     margin-left: 20px;
@@ -171,11 +171,11 @@ input.cmn-toggle-round-flat:checked + label:after {
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     background:none;
     border: none !important;
-    color:  #FE5137 !important;
-    border-bottom:solid 2px #FE5137 !important;
+    color:  #7451eb!important;
+    border-bottom:solid 2px #7451eb!important;
 }
 .nav-tabs .nav-link:hover {
-    border-bottom:solid 2px lightgrey !important;
+    border-bottom:solid 2px lightwhite !important;
 }
 .smallModal .modal-body{
     background:#F5FAFC;
@@ -306,7 +306,7 @@ input.cmn-toggle-round-flat:checked + label:after {
 }
 #sideHeader .nav li a {
     display: block;
-    color: grey;
+    color: white;
     padding: 8px 20px;
     font-size: 13px;
     margin: 0;
@@ -492,7 +492,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     background-size: cover;
 }
 .each-search-result i{
-    color: lightgrey;
+    color: lightwhite;
     font-size: 25px;
 }
 .each-search-result .float-left{
@@ -502,7 +502,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     background: #FFF4F1;
 }
 .border-right{
-    border-right: solid 2px grey;
+    border-right: solid 2px white;
     margin-right: 25px;
 }
 .in-header ul li:last-child a {
@@ -515,7 +515,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     position: absolute;
     top: 0;
     z-index: 99;
-    background-color: #FF5533;
+    background-color: #003668;
     display: block;
     width: 22px;
     height: 22px;
@@ -589,7 +589,7 @@ input.cmn-toggle-round-flat:checked + label:after {
 .left-nav .nav li a{
     display: block;
     padding: 8px 5px;
-    color: grey;
+    color: white;
     font-weight: 600;
     font-size: 12px;
 }
@@ -642,7 +642,7 @@ input.cmn-toggle-round-flat:checked + label:after {
 }
 .avatar-placeholder i{
     font-size: 50px;
-    color: grey;
+    color: white;
     margin: 40px 0;
 }
 .avatar-placeholder-flat i{
@@ -676,7 +676,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     background: #F7F7F7;
     border: dashed 2px #F1F1F1;
     border-radius: 3px;
-    color: grey;
+    color: white;
     position: relative;
     cursor: pointer;
     margin-bottom: 15px;
@@ -684,7 +684,7 @@ input.cmn-toggle-round-flat:checked + label:after {
 .track-selector i{
     display: block;
     font-size: 50px;
-    color: lightgrey;
+    color: lightwhite;
     margin: 30px 0;
 }
 .track-selector input[type=file]{
@@ -833,7 +833,7 @@ input.cmn-toggle-round-flat:checked + label:after {
 }
 .each-track .title-container a{
     font-weight: 600;
-    color: grey;
+    color: white;
 }
 .actions-container .btn {
 
@@ -841,7 +841,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     background: #ffffff;
     border: solid 1px #E9ECEF;
     margin-right: 0px;
-    color: grey;
+    color: white;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
@@ -865,7 +865,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     border-radius: 2px;
 }
 .each-track .left-content .stats {
-    color: grey;
+    color: white;
 }
 .each-track .detail {
     position: relative;
@@ -946,7 +946,7 @@ input.cmn-toggle-round-flat:checked + label:after {
 }
 .each-track .footer-stat {
     margin-top: 10px;
-    color: grey;
+    color: white;
     position: relative;
 }
 .each-track .footer-stat .btn{
@@ -973,7 +973,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     display: block;
     padding: 12px 5px;
     font-size: 15px;
-    color: grey;
+    color: white;
 }
 .current-seek  .play-controls .playprogress {
     display: none;
@@ -1225,7 +1225,7 @@ input.cmn-toggle-round-flat:checked + label:after {
 }
 .sound-container .right-play-controls .jp-current-time{
     display: inline-block;
-    color: grey;
+    color: white;
 }
 .sound-container .right-play-controls .jp-duration {
     display: inline-block;
@@ -1294,7 +1294,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     color: #A7A59D;
 }
 .each-item {
-    border: solid 1px lightgrey;
+    border: solid 1px lightwhite;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
@@ -1310,7 +1310,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    border: solid 1px lightgrey;
+    border: solid 1px lightwhite;
     padding: 0px 5px;
     font-size: 12px;
     color: #000 !important;
@@ -1477,7 +1477,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     display: block;
     padding: 10px 5px;
     font-size: 15px;
-    color: grey;
+    color: white;
 }
 
 .page-title {
@@ -1518,11 +1518,11 @@ input.cmn-toggle-round-flat:checked + label:after {
 }
 .comments-container .each-comment h5 span{
     font-weight: lighter;
-    color: grey;
+    color: white;
 }
 .comments-container .each-comment .actions a{
     font-size: 20px;
-    color: grey;
+    color: white;
     margin-left: 10px;
     display: none;
 }
@@ -1598,7 +1598,7 @@ input.cmn-toggle-round-flat:checked + label:after {
 .inline-card-list .title, .card-list .title{
     border-bottom: 2px solid #ebf0f2;
     padding-bottom: 10px;
-    color: grey;
+    color: white;
     font-size: 13px;
     font-weight: 600;
 }
@@ -1884,7 +1884,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     width: 100%;
 }
 .box .nav li a {
-    color: grey;
+    color: white;
     padding:10px 0;
     display: block;
 }
@@ -1922,7 +1922,7 @@ input.cmn-toggle-round-flat:checked + label:after {
 }
 .stats .stat .stat-title{
     height: 30px;
-    color: grey;
+    color: white;
     background: #D9D9D9;
     padding: 5px 10px;
     border-bottom-left-radius: 5px;
@@ -2039,7 +2039,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     font-size: 13px !important;
 }
 .track-mini-inline .media-heading b{
-    color: grey;
+    color: white;
 }
 
 .track-mini-inline .media-heading .title {
@@ -2133,7 +2133,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     color: #000;
 }
 .horizontal-list .title span{
-    color: grey;
+    color: white;
     font-size: 13px;
     display: block;
 }
@@ -2202,7 +2202,7 @@ input.cmn-toggle-round-flat:checked + label:after {
 .horizontal-list .slider .list .art .play-button{
     width:45px;
     height:45px;
-    border: solid 2px #F90251;
+    border: solid 2px #7451eb;
     border-radius: 100px;
     margin-right: 15px;
     display: block;
@@ -2210,7 +2210,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     font-size: 25px;
     padding-top: 1px;
     padding-left: 5px;
-    color:  #F90251;
+    color:  #7451eb;
     background: #ffffff;
     left: 40%;
     position: absolute;
@@ -2220,9 +2220,9 @@ input.cmn-toggle-round-flat:checked + label:after {
 .horizontal-list .slider .list .art .play-icon {
     width:45px;
     height:45px;
-    border: solid 2px #F90251;
+    border: solid 2px #7451eb;
     border-radius: 100px;
-    color:  #F90251;
+    color:  #7451eb;
     background: #ffffff;
     display: block;
     text-align: center;
@@ -2297,7 +2297,7 @@ b{
     -ms-transform: translate(-50%, -50%);
 }
 .ms_bars .bar {
-    background: #FF5533;
+    background: #003668;
     bottom: 1px;
     height: 3px;
     position: absolute;
@@ -2389,7 +2389,7 @@ b{
     height: 650px;
     position: relative;
     background-color: #EDF6F5;
-    background-image: linear-gradient(90deg, #F90251 0%, rgba(249,2,81,1) 55%, rgba(253,43,109,1) 100%);
+    background-image: linear-gradient(90deg, #7451eb 0%, rgba(249,2,81,1) 55%, rgba(253,43,109,1) 100%);
     background-image: url(../images/topo.jpg);
     background-position: center;
     -webkit-background-size: cover;
@@ -2402,7 +2402,7 @@ b{
     left: 0;
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(90deg, #F90251 0%, rgba(249,2,81,0.3) 55%, rgba(253,43,109,0.7) 100%);
+    background-image: linear-gradient(90deg, #7451eb 0%, rgba(249,2,81,0.3) 55%, rgba(253,43,109,0.7) 100%);
 }
 .topography:after {
     position: absolute;
@@ -2438,7 +2438,7 @@ b{
 }
 .topography .topo-header  ul li a{
     display: block;
-    color: grey;
+    color: white;
     font-weight: 600;
     padding: 10px 15px;
 }
@@ -2656,7 +2656,7 @@ b{
     font-weight: lighter;
 }
 .section .section-title .note{
-    color: grey;
+    color: white;
     font-size: 15px;
     font-weight: bold;
 }
@@ -2675,7 +2675,7 @@ b{
 }
 .footer-section {
     text-align: center;
-    color: grey;
+    color: white;
     font-size: 14px;
 }
 .footer-section .links a {
@@ -2770,7 +2770,7 @@ b{
     display: block;
     padding: 100px 0;
     font-size: 15px;
-    color: grey;
+    color: white;
 }
 .getstarted-content .step .title{
     margin: 10px 10px;
@@ -2779,7 +2779,7 @@ b{
     font-size: 25px ;
 }
 .getstarted-content .step .title span{
-    color: grey;
+    color: white;
     font-size: 15px;
 }
 .each-genre {
@@ -2863,7 +2863,7 @@ b{
 .grid-container .grid .art{
     width: 100%;
     height: 190px;
-    background-color: grey;
+    background-color: white;
     background-position: center;
     -webkit-background-size: cover;
     background-size: cover;
@@ -2911,7 +2911,7 @@ b{
     padding: 10px 10px;
 }
 .grid-container .grid .grid-title-container .grid-info{
-    color: grey;
+    color: white;
     font-weight: 600;
 }
 .grid-container .grid .art .play-container .track-stats {
@@ -2951,7 +2951,7 @@ b{
 }
 .pro-content h5{
     font-size: 40px;
-    color: #FF5533;
+    color: #003668;
 }
 
 .pro-plans {
@@ -2980,10 +2980,10 @@ b{
 .plan .price-container .price {
     font-size: 40px;
     font-weight: lighter;
-    color: grey;
+    color: white;
 }
 .plan .price-container .currency {
-    color: #FF5533;
+    color: #003668;
     font-weight: bold;
 }
 
@@ -2998,7 +2998,7 @@ b{
     text-align: center;
     list-style: none;
     margin: 20px 0;
-    color: grey;
+    color: white;
 }
 .payment-methods .each a{
     display: block;
@@ -3041,7 +3041,7 @@ b{
     background-position: center;
     -webkit-background-size: cover;
     background-size: cover;
-    border: solid 2px lightgrey;
+    border: solid 2px lightwhite;
 }
 .user-card .btn{
     width: 100%;
@@ -3095,7 +3095,7 @@ b{
     color: #ffffff;
 }
 .share-container .social-links li a.mail:hover {
-    background: #ff7f50;
+    background: #7451eb;
     color: #ffffff;
 }
 .share-container .embed-types {
@@ -3106,7 +3106,7 @@ b{
 }
 .share-container .embed-types  a {
     display: block;
-    border: solid 1px lightgrey;
+    border: solid 1px lightwhite;
     background: #F5F9FC;
     padding:15px 5px;
     font-size: 13px;
@@ -3188,14 +3188,14 @@ b{
 }
 .embed-body .embed-type-picture .track-stats {
     background: rgba(0,0,0,0.4);
-    color: lightgrey;
+    color: lightwhite;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
     padding: 0 5px;
 }
 .embed-body .embed-type-picture .track-stats a {
-    color: lightgrey;
+    color: lightwhite;
     padding: 5px 5px;
 }
 .embed-body .embed-type-picture .playlist-tracks-total {
@@ -3212,7 +3212,7 @@ b{
     right: 40px;
     bottom: 10px;
     background: rgba(0,0,0,0.4);
-    color: lightgrey;
+    color: lightwhite;
     padding: 5px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -3304,7 +3304,7 @@ b{
     right: 40px;
     top: 5px;
     background: rgba(0,0,0,0.4);
-    color: lightgrey;
+    color: lightwhite;
     padding: 5px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -3409,7 +3409,7 @@ b{
     font-weight: 600;
 }
 .conversations .each .text{
-    color: grey;
+    color: white;
 }
 .conversations .active {
     background-color: #F9FAFB;
@@ -3559,7 +3559,7 @@ b{
 .flat-stat {
     width:100%;
     height:100px;
-    background:#FF9736;
+    background:#7451eb;
     color: #fff;
     border-radius:5px;
     margin:10px 0;
@@ -3639,7 +3639,7 @@ b{
     color: black;
 }
 .store-title .float-right a{
-    color: grey;
+    color: white;
 }
 .inline-grid {
     width:auto;
@@ -3815,12 +3815,12 @@ b{
     width:95%;
 }
 .each-upload-track .progress-wrapper .progress-bar {
-    background-color: #FF5533;
+    background-color: #003668;
 }
 .each-upload-track .progress-wrapper .its-loader {
     width: 15px;
     height: 15px;
-    border: solid 1px #FF5533;
+    border: solid 1px #003668;
     color: #fff;
     font-size:12px;
     text-align: center;
@@ -3845,7 +3845,7 @@ b{
     right: 2px;
 }
 .finished-progress-wrapper {
-    background: #FF5533;
+    background: #003668;
     color: #fff !important;
 }
 .finished-progress-wrapper span {
@@ -4277,7 +4277,7 @@ b{
 }
 .bar-search-container input::placeholder {
     font-size: 17px;
-    color:grey
+    color:white
 }
 .bar-search-container button{
     width:40px;
@@ -4313,7 +4313,7 @@ b{
 .badge-inverse {
     background: #E9ECEF !important;
     font-size: 13px;
-    color: grey !important;
+    color: white !important;
     font-weight: 400;
     padding: 7px 10px;
 }
@@ -4324,12 +4324,12 @@ b{
 }
 .media-stat-info .each{
     margin-left: 10px;
-    color: grey;
+    color: white;
 }
 .media-title {
     padding: 10px 0;
     border-bottom: solid 1px #E9ECEF;
-    color: grey;
+    color: white;
     margin-bottom: 10px;
 }
 .each-upload-track .middle .form-control {
@@ -4339,7 +4339,7 @@ b{
     background: #F7F7F7;
     border: dashed 2px #F1F1F1;
     border-radius: 3px;
-    color: grey;
+    color: white;
     padding: 15px 20px;
     padding-bottom: 0;
 }
@@ -4856,8 +4856,8 @@ b{
         color: #FFB19E !important;
     }
     .mobile-tab a.active{
-        border-bottom:solid 3px #FF6138;
-        color: #FF6138 !important;
+        border-bottom:solid 3px #7451eb;
+        color: #7451eb !important;
     }
     .mobile-tab a span.count{
         width:20px;
@@ -5114,7 +5114,7 @@ b{
     background-position:center;
     background-size:cover;
     float:left;
-    border-right:solid 1px lightgrey;
+    border-right:solid 1px lightwhite;
 }
 .track-time-comment-container form .reply-to{
     float:left;
@@ -5150,7 +5150,7 @@ b{
 }
 .auth-container {
     padding: 5% 10%;
-    background-image: linear-gradient(90deg, #F90251 0%, rgba(249,2,81,0.3) 55%, rgba(253,43,109,0.7) 100%);
+    background-image: linear-gradient(90deg, #7451eb 0%, rgba(249,2,81,0.3) 55%, rgba(253,43,109,0.7) 100%);
     position: fixed;
     height: 100%;
     width: 100%;
