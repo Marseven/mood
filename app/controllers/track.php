@@ -14,7 +14,7 @@ class TrackController extends Controller {
         $val = array(
             'number' => $this->request->input('number')
         );
-        die;
+       
         $uploader->setPath("tracks/".$this->model('user')->authId.'/tracks/'.date('Y').'/');
         if ($uploader->passed()) {
             $val['size'] = $audioSize;
@@ -31,7 +31,7 @@ class TrackController extends Controller {
                 $fileIndex = @fopen(path("uploads/waves/$dir/index.html"), 'x+');
                 fclose($fileIndex);
             }
-
+            die('ici');
             if (config('wave-generator', 'browser') == 'server') {
                 $wave = 'uploads/waves/'.$dir.'/wave_base'.time().'.png';
                 $waveColored = 'uploads/waves/'.$dir.'/wave_top'.time().'.png';
