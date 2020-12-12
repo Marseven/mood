@@ -4,11 +4,9 @@ body{
     overflow-x: hidden;
     background: #F7F7F7;
     background: #ffffff;
-    font-family: Gotham;
     font-weight: 300;
     font-size: 13px;
-    font-family: Roboto,-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 .wrap {
     -ms-word-break: break-all;
