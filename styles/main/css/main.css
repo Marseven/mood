@@ -603,10 +603,10 @@ input.cmn-toggle-round-flat:checked + label:after {
     color: #000;
 }
 .left-nav .nav li .active {
-    border-left:  solid 2px #FD6F6C;
+    border-left:  solid 2px #7451eb;
 }
 .breadcrumb-item.active {
-    color: #FD6F6C;
+    color: #7451eb;
 }
 .account-card {
     width: 100%;
