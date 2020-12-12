@@ -1140,4 +1140,6 @@ return array(
 
     //version 2.3.3
     'autofill-upload-data' => 'Activer pour remplir automatiquement certaines informations de la chanson',
+    'privacy-policy' => 'Politique de Confidentialité',
+    'terms-and-conditions' => 'Termes et Conditions d\'utilisation',
 );
