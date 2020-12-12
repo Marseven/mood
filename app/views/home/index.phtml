@@ -1,4 +1,3 @@
-<?php die; ?>
 <div class="homepage-container">
     <div class="topography">
         <div class="topography-cover"></div>
@@ -34,7 +33,7 @@
                         <?php if(!config('separate-login', 0)):?>
                             <a class="btn btn-white-border mr-4" href="#" onclick="return changeAuthModal('.login-form')" ><?php _l('sign-in')?></a>
                             <?php if(config('user-signup', true)):?>
-                                <a href="#" onclick="return changeAuthModal('.signup-form')" class="btn btn-white-bg"><?php _l('create-account')?></a>
+                                <a href="#" onclick="return changeAuthModal('.signup-form')" class="btn btn-white-bg" style="background-color: 003668; color:#fff;"><?php _l('create-account')?></a>
                             <?php endif?>
                         <?php else:?>
                             <a class="btn btn-white-border mr-4" href="<?php echo url('login')?>" ><?php _l('sign-in')?></a>
@@ -45,7 +44,7 @@
                     </div>
  
                     <div class="mt-5">
-                        <h1><?php _l('find-the-music')?> <span class="colored"><?php _l('you-love')?></span>. </h1>
+                        <h1><?php _l('find-the-music')?> <?php _l('you-love')?>. </h1>
                         <h4 class="mt-4"><?php _l('discover-new-tracks-title')?></h4>
                     </div>
                 </div>
