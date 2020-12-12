@@ -3,7 +3,7 @@
     "name": "Mood",
     "icons": [
       {
-        "src": "/images/icons-192.png",
+        "src": "assets/images/icons-192.png",
         "type": "image/png",
         "sizes": "192x192"
       },
