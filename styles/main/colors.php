@@ -179,7 +179,7 @@ return array(
 
             'pro-badge' =>  array(
                 'title' => 'Pro Badge Background Color',
-                'color' => '#636E72',
+                'color' => '#7451eb',
                 'type' => 'background',
                 'target' => '.pro-badge'
             ),
