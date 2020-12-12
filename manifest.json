@@ -3,18 +3,18 @@
     "name": "Mood",
     "icons": [
       {
-        "src": "assets/images/icons-192.png",
+        "src": "assets/images/ico-192.png",
         "type": "image/png",
         "sizes": "192x192"
       },
       {
-        "src": "assets/images/icons-512.png",
+        "src": "assets/images/ico-512.png",
         "type": "image/png",
         "sizes": "512x512"
       }
     ],
-    "start_url": "/index.php",
-    "background_color": "#000000",
+    "start_url": "http://mood.fautfallalework.com/",
+    "background_color": "#fff",
     "display": "standalone",
     "theme_color": "#7451eb"
   }
