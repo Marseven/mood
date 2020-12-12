@@ -399,7 +399,7 @@ return array(
     "hear-whats-trending-on" => "Écoutez les tendances",
     "hears-what-trending-note" => "Obtenez de la musique géniale de nos charts",
     "explore-top-50" => "Explorez le top 50",
-    "calling-all-creators" => "Chanteurs ou Producteur ?",
+    "calling-all-creators" => "Chanteur ou Producteur ?",
     "calling-all-creators-note" => "Faites-vous de la musique ou créez-vous de l'audio? partagez-le <br/> sur",
     "access-to-fans" => "Toucher votre public",
     "know-more-about-music" => "En savoir plus sur votre musique",
