@@ -391,7 +391,7 @@ return array(
     "listen-to-tracks" => "Ecouter des morceaux",
     "sign-in" => "se connecter",
     "create-account" => "Créer un compte",
-    "find-the-music" => "Trouver la musique",
+    "find-the-music" => "Trouves la musique que",
     "you-love" => "tu aimes",
     "discover-new-tracks-title" => "Découvrez de nouvelles pistes. <br/> Connectez-vous directement à vos artistes préférés.",
     "upload-your-music" => "Téléchargez votre musique",
