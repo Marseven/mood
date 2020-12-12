@@ -35,7 +35,7 @@
                             <?php if(config('user-signup', true)):?>
                                 <a href="#" onclick="return changeAuthModal('.signup-form')" class="btn btn-white-bg" style="background-color: #003668; color:#fff;"><?php _l('create-account')?></a>
                             <?php endif?>
-                        <?php else:?>
+                        <?php else:?> 
                             <a class="btn btn-white-border mr-4" href="<?php echo url('login')?>" ><?php _l('sign-in')?></a>
                             <?php if(config('user-signup', true)):?>
                                 <a href="<?php echo url('signup')?>"  class="btn btn-white-bg" style="background-color: #003668; color:#fff;"><?php _l('create-account')?></a>
