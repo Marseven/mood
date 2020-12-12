@@ -1884,7 +1884,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     width: 100%;
 }
 .box .nav li a {
-    color: white;
+    color: grey;
     padding:10px 0;
     display: block;
 }
@@ -1923,7 +1923,7 @@ input.cmn-toggle-round-flat:checked + label:after {
 .stats .stat .stat-title{
     height: 30px;
     color: white;
-    background: #D9D9D9;
+    background: #003668;
     padding: 5px 10px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
