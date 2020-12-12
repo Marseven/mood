@@ -1957,7 +1957,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     width: 30px;
     height: 30px;
     font-size: 13px;
-    font-weight: bold;
+    font-weight: bold; 
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
     border-radius: 100px;
