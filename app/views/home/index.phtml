@@ -279,7 +279,7 @@
         <div class="section footer-section">
             <div class="links">
                 <?php foreach($C->model('admin')->getPagesMenu('footer') as $page):?>
-                    <a href="<?php echo url('page/'.$page['url'])?>" class="btn btn-primary  pr-5 pl-5"><?php _l($page['title'])?></a>
+                    <a href="<?php echo url('page/'.$page['url'])?>" ><?php _l($page['title'])?></a>
                 <?php endforeach;?>
                 <?php Hook::getInstance()->fire('home-footer-links')?>
             </div>
