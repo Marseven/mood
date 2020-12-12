@@ -138,9 +138,9 @@
     <div class="bg-section">
         <div class="inner-container">
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-12">
                     <div class="section" >
-                        <div class="section-title align-left-to-center" style="" data-animation="fadeInDown" data-animation-delay="400">
+                        <div class="section-title align-center" style="" data-animation="fadeInDown" data-animation-delay="400">
                             <h2><?php _l('get-connected-with-great-artists')?></h2>
                             <span class="note"><?php _l('get-connected-with-great-artists-note')?></span>
                             <div class="mt-5">
@@ -149,7 +149,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-12">
                     <div class="home-artists-container clearfix" data-animation="fadeInDown" data-animation-delay="400">
                         <?php foreach(model('user')->getRandomArtists(14) as $user):?>
 
@@ -163,19 +163,28 @@
 
     <div class="inner-container">
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-12">
+                <div class="section">
+                    <div class="section-title align-center" style=" margin-top: 150px;" data-animation="fadeInDown" data-animation-delay="400">
+                        <h2><?php _l('calling-all-creators')?></h2>
+                        <span class="note"><?php _l('calling-all-creators-note')?> <span class="colored"><?php echo config('site-title')?></span></span>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
                 <div class="section">
                     <div class="section-title" data-animation="fadeInDown" data-animation-delay="400">
                         <div class="content">
                             <div class="row">
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <div class="hero-box" data-animation="fadeInDown" data-animation-delay="400">
                                         <i class="la la-cloud-upload colored"></i>
                                         <h6 class="title"><?php _l('upload')?></h6>
                                     </div>
                                 </div>
 
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <div class="hero-box" data-animation="fadeInDown" data-animation-delay="400">
                                         <i class="la la-users colored"></i>
                                         <h6 class="title"><?php _l('access-to-fans')?></h6>
@@ -183,14 +192,14 @@
                                 </div>
 
 
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <div class="hero-box" data-animation="fadeInDown" data-animation-delay="400">
                                         <i class="la la-bar-chart colored"></i>
                                         <h6 class="title"><?php _l('know-more-about-music')?></h6>
                                     </div>
                                 </div>
                                 <?php if(moduleExists('store')):?>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                         <div class="hero-box" data-animation="fadeInDown" data-animation-delay="400">
                                             <i class="la la-money colored"></i>
                                             <h6 class="title"><?php _l('sell-your-tracks')?></h6>
@@ -200,15 +209,6 @@
                                 <?php endif?>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="section">
-                    <div class="section-title align-right-to-center" style=" margin-top: 150px;" data-animation="fadeInDown" data-animation-delay="400">
-                        <h2><?php _l('calling-all-creators')?></h2>
-                        <span class="note"><?php _l('calling-all-creators-note')?> <span class="colored"><?php echo config('site-title')?></span></span>
-
                     </div>
                 </div>
             </div>
