@@ -393,7 +393,7 @@ return array(
     "create-account" => "Créer un compte",
     "find-the-music" => "Trouves la musique que",
     "you-love" => "tu aimes",
-    "discover-new-tracks-title" => "Découvrez de nouvelles pistes. <br/> Connectez-vous directement à vos artistes préférés.",
+    "discover-new-tracks-title" => "Découvrez de nouvelles pistes. <br/> Vivez des émotions uniques avec Mood.",
     "upload-your-music" => "Téléchargez votre musique",
     "search-for-artists-tracks" => "Recherche d'artistes, titres e.t.c",
     "hear-whats-trending-on" => "Écoutez les tendances",
