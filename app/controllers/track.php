@@ -8,7 +8,7 @@ class TrackController extends Controller {
     public function upload() {
         $audio = $this->request->inputFile('track_file');
 
-        include_once('..\vendor\james-heinrich\getid3\getid3\getid3.php');
+        include_once(path('app/vendor/james-heinrich/getid3/getid3/getid3.php' ));
         
         $uploader = new Uploader($audio, 'audio');
         $audioSize = $uploader->sourceSize;
@@ -22,9 +22,6 @@ class TrackController extends Controller {
             $sourceFile = $audio['tmp_name'];
             $tmpMove = $uploader->uploadFile()->result();
             $file = path($tmpMove);
-            $test = file_exists ( path('app/vendor/james-heinrich/getid3/getid3/getid3.php' ));
-            var_dump($test);
-            die('ici');
             $getID3 = new getID3();
             $ThisFileInfo = $getID3->analyze(path($tmpMove));
             $val['duration'] = $ThisFileInfo['playtime_seconds'];

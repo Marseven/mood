@@ -76,7 +76,7 @@ if (!defined('GETID3_TEMP_DIR')) {
 }
 unset($open_basedir, $temp_dir);
 
-die('ici');
+//die('ici');
 // End: Defines
 
 
