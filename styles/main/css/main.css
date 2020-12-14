@@ -2911,6 +2911,11 @@ b{
 .grid-container .grid .grid-title-container {
     padding: 10px 10px;
 }
+
+.grid-title-container .dark-mode a {
+    color: #000;
+}
+
 .grid-container .grid .grid-title-container .grid-info{
     color: #7451eb;
     font-weight: 600;
