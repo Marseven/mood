@@ -265,6 +265,7 @@ class getID3
 
 	public function __construct() {
 
+		die('ici');
 		// Check for PHP version
 		$required_php_version = '5.3.0';
 		if (version_compare(PHP_VERSION, $required_php_version, '<')) {
