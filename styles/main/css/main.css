@@ -549,7 +549,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     position: absolute;
     left: 0px;
     top: 0;
-    height: 40px;
+    height: 38px;
     border: solid 1px #E9ECEF;
     padding-left: 5px;
     padding-right: 5px;
