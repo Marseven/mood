@@ -22,6 +22,7 @@ class TrackController extends Controller {
             $sourceFile = $audio['tmp_name'];
             $tmpMove = $uploader->uploadFile()->result();
             $file = path($tmpMove);
+            die('ici');
             $getID3 = new getID3();
             $ThisFileInfo = $getID3->analyze(path($tmpMove));
             $val['duration'] = $ThisFileInfo['playtime_seconds'];
