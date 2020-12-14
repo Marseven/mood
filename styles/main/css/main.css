@@ -5369,7 +5369,7 @@ b{
     opacity: 1 !important;
 }
 .dark-mode a {
-    color: #fff ;
+    color: grey ;
 }
 .dark-mode #sideHeader, .dark-mode .in-header {
     background: #161616 !important;;
