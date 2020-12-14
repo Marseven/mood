@@ -22,6 +22,8 @@ class TrackController extends Controller {
             $sourceFile = $audio['tmp_name'];
             $tmpMove = $uploader->uploadFile()->result();
             $file = path($tmpMove);
+            $test = file_exists ( '..\vendor\james-heinrich\getid3\getid3\getid3.php' );
+            var_dump($test);
             die('ici');
             $getID3 = new getID3();
             $ThisFileInfo = $getID3->analyze(path($tmpMove));
