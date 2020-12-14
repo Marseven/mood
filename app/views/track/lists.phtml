@@ -19,7 +19,7 @@
                 $track = array_merge($stream, $track);
                 //$track['time'] = $stream['str']
             }
-            if ($track['public'] == 3) $track = false;
+            if ($track != NULL && $track['public'] == 3) $track = false;
         } else {
             $result = Hook::getInstance()->fire('get.lists.track', array('track' => null), array($type, $typeId, $track));
             if ($result['track']) {

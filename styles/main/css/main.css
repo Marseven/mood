@@ -70,7 +70,7 @@ input, select,input:focus,input:active,input.form-control:focus,textarea.form-co
     border-color: #003668;
 }
 .form-control-active {
-    background:white;
+    background:grey;
     border-color: #003668 !important;
 }
 .iziToast.iziToast-theme-dark {
@@ -121,6 +121,7 @@ input, select,input:focus,input:active,input.form-control:focus,textarea.form-co
 }
 .btn-secondary{
     border: none !important;
+    background: #003668;
 }
 label{
     font-weight: 600;
@@ -152,7 +153,7 @@ label{
     background: #003668;
 }
 input.cmn-toggle-round-flat:checked + label {
-    background-color:white;
+    background-color:grey;
 }
 input.cmn-toggle-round-flat:checked + label:after {
     margin-left: 20px;
@@ -587,7 +588,7 @@ input.cmn-toggle-round-flat:checked + label:after {
 .left-nav .nav li a{
     display: block;
     padding: 8px 5px;
-    color: white;
+    color: grey;
     font-weight: 600;
     font-size: 12px;
 }
@@ -674,7 +675,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     background: #F7F7F7;
     border: dashed 2px #F1F1F1;
     border-radius: 3px;
-    color: white;
+    color: grey;
     position: relative;
     cursor: pointer;
     margin-bottom: 15px;
@@ -713,7 +714,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     width: 100%;
     text-align: right;
     height: 100%;
-    background:white;
+    background:grey;
     opacity: 0.4;
     padding: 10px 0 ;
     display: none;
@@ -1596,7 +1597,7 @@ input.cmn-toggle-round-flat:checked + label:after {
 .inline-card-list .title, .card-list .title{
     border-bottom: 2px solid #ebf0f2;
     padding-bottom: 10px;
-    color: white;
+    color: grey;
     font-size: 13px;
     font-weight: 600;
 }
@@ -2625,8 +2626,8 @@ b{
 }
 .home-artists-container  a {
     float: left;
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
     border-radius: 100px;
@@ -2910,7 +2911,7 @@ b{
     padding: 10px 10px;
 }
 .grid-container .grid .grid-title-container .grid-info{
-    color: white;
+    color: #7451eb;
     font-weight: 600;
 }
 .grid-container .grid .art .play-container .track-stats {
@@ -3333,7 +3334,7 @@ b{
 }
 .messages-container .left{
     width: 30%;
-    background:white;
+    background:grey;
     height: 71vh;
     border-right: solid 2px #E9ECEF;
     border-top-left-radius: 5px;
@@ -3589,7 +3590,7 @@ b{
 .each-upload-track-price .left{
     width:12%;
     height:35px;
-    background:white;
+    background:grey;
     overflow: hidden;
     position: relative;
     float: left;
@@ -3707,7 +3708,7 @@ b{
     padding:0;
 }
 .store-inline-track  .track-hover-display{
-    background:white !important;
+    background:grey !important;
     width:20px;
     height:20px;
     position: absolute;
@@ -3980,7 +3981,7 @@ b{
     padding-bottom: 2px;
 }
 .video-play-track-container .media-heading a b, .video-play-track-container .track-mini-inline .media-heading .title b{
-    color:white !important;
+    color:grey !important;
 }
 .video-play-track-container .each-inline-track {
     background:none !important;
@@ -4276,7 +4277,7 @@ b{
 }
 .bar-search-container input::placeholder {
     font-size: 17px;
-    color:white
+    color:grey
 }
 .bar-search-container button{
     width:40px;
@@ -4338,7 +4339,7 @@ b{
     background: #F7F7F7;
     border: dashed 2px #F1F1F1;
     border-radius: 3px;
-    color: white;
+    color: grey;
     padding: 15px 20px;
     padding-bottom: 0;
 }
@@ -5101,7 +5102,7 @@ b{
     border:solid 5px #F2F2F2;
     height:35px;
     overflow:hidden;
-    background:white;
+    background:grey;
     border-radius:4px;
     display:none;
     margin-top:10px;
@@ -5210,7 +5211,7 @@ b{
     background: none;
 }
 .dark-mode .topography .topo-hero h1 {
-    color:white
+    color:grey
 }
 .dark-mode .content-line span {
     background:black;
@@ -5219,13 +5220,13 @@ b{
     background: #000;
 }
 .dark-mode .fb-button {
-    color:white !important;
+    color:grey !important;
 }
 .theme-mode-button {
     font-size:15px
 }
 .dark-mode .theme-mode-button {
-    color:white !important;
+    color:grey !important;
     background: #000;
 }
 .dark-mode #sound-playlists {
@@ -5606,7 +5607,7 @@ b{
     background: none;
 }
 .dark-mode .topography .topo-hero h1 {
-    color:white
+    color:grey
 }
 .dark-mode .content-line span {
     background:black;
@@ -5615,19 +5616,19 @@ b{
     background: #000;
 }
 .dark-mode .fb-button {
-    color:white !important;
+    color:grey !important;
 }
 .theme-mode-button {
     font-size:15px
 }
 .dark-mode .theme-mode-button {
-    color:white !important;
+    color:grey !important;
 }
 .dark-mode .each-welcome-user .cover {
     background: #000;
 }
 .dark-mode .each-welcome-user .cover i {
-    color:white;
+    color:grey;
 }
 .dark-mode .messages-container, .dark-mode .messages-container .left,
 .dark-mode .chat-form,.dark-mode .chat-form form,.dark-mode .chat-form form input[type=text],
@@ -5636,7 +5637,7 @@ b{
     border-color: #1A1A1A;
 }
 .dark-mode .chat-form form input[type=text] {
-    color:white
+    color:grey
 }
 .dark-mode .conversations .active {
     background:#1A1A1A;

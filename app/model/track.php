@@ -145,7 +145,7 @@ class TrackModel extends Model {
         $userid = ($userid) ? $userid : $this->C->model('user')->authId;
 
         if ($release_date) {
-            list($day,$month,$year) = explode('/', $release_date);
+            list($day,$month,$year) = explode('-', $release_date);
             $release_date = mktime(0,0,0, $month,$day,$year);
         }
         if (!$track) {
@@ -703,8 +703,11 @@ class TrackModel extends Model {
         $query = $this->db->query("SELECT track FROM playlistentries WHERE playlist=?  ORDER BY id ASC", $id);
         if ($query) {
             $fetch = $query->fetch(PDO::FETCH_ASSOC);
-            $track = $this->findTrack($fetch['track']);
-            return $track;
+            //var_dump($fetch);die;
+            if($fetch != false){
+                $track = $this->findTrack($fetch['track']);
+                return $track;
+            }
         }
         return null;
     }

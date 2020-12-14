@@ -31,7 +31,7 @@ class TrackController extends Controller {
                 $fileIndex = @fopen(path("uploads/waves/$dir/index.html"), 'x+');
                 fclose($fileIndex);
             }
-            die('ici');
+            
             if (config('wave-generator', 'browser') == 'server') {
                 $wave = 'uploads/waves/'.$dir.'/wave_base'.time().'.png';
                 $waveColored = 'uploads/waves/'.$dir.'/wave_top'.time().'.png';
