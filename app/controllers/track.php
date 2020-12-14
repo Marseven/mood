@@ -8,7 +8,8 @@ class TrackController extends Controller {
     public function upload() {
         $audio = $this->request->inputFile('track_file');
 
-        include_once(path('app\vendor\james-heinrich\getid3\getid3\getid3.php'));
+        include_once('..\vendor\james-heinrich\getid3\getid3\getid3.php');
+        //app\vendor\james-heinrich\getid3\getid3\getid3.php
         $uploader = new Uploader($audio, 'audio');
         $audioSize = $uploader->sourceSize;
         $val = array(
