@@ -444,9 +444,6 @@ class AdminController extends Controller {
         $this->activeMenu = 'newsletter';
         $this->useEditor = true;
         if ($val = $this->request->input('val', null, false)) {
-            var_dump($this->isDemo());
-            var_dump($this->request);
-            die;
             if ($this->isDemo()) $this->defendDemo();
             $to = $val['to'];
             $content = nl2br($val['text']);
