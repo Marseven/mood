@@ -42,8 +42,8 @@ class Email {
         $this->charset = config('email-charset', 'utf-8');
         $this->fromAddress = config('from_address', '');
         $this->fromName = config('site-title', 'Mood');
-        include_once path('app\vendor\phpmailer\PHPMailerAutoload.php');
-        $test = file_exists(path('app\vendor\phpmailer\PHPMailerAutoload.php'));
+        include_once path('app/vendor/phpmailer/PHPMailerAutoload.php');
+        $test = file_exists(path('app/vendor/phpmailer/PHPMailerAutoload.php'));
         var_dump($test);
         die;
         try {
