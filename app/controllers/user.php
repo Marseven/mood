@@ -252,7 +252,6 @@ class UserController extends Controller {
     public function follow() {
         $id = $this->request->input('id');
 
-
         $action = $this->model('user')->follow($id);
         $user = $this->model('user')->getUser($id);
         return json_encode(array(

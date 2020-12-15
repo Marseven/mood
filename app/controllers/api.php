@@ -153,7 +153,7 @@ class ApiController extends Controller {
             if (config('email-activation', false)) {
                 return json_encode(array(
                     'message' => l('signup-successful-activate'),
-                    'status' => 2 //activate accoun my mail
+                    'status' => 2 //activate account my mail
                 ));
             }
 

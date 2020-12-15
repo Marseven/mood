@@ -12,7 +12,7 @@ return array(
     /**
      * Option to know if debug is enabled or not
      */
-    'debug' => true,
+    'debug' => false,
 
     /**
      * Option to enable https
@@ -36,7 +36,7 @@ return array(
         'fa',
     ),
 
-    'demo' => true,
+    'demo' => false,
     'site-title' => 'Mood',
 
     'max-image-size' => '10000000',
