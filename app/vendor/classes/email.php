@@ -61,9 +61,6 @@ class Email {
             }
             $this->mailer->setFrom($this->fromAddress, $this->fromName);
         } catch(\Exception $e) {}
-        var_dump($this->mailer);
-        die;
-        
 
     }
 
