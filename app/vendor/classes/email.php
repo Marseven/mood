@@ -43,9 +43,6 @@ class Email {
         $this->fromAddress = config('from_address', '');
         $this->fromName = config('site-title', 'Mood');
         include_once path('app/vendor/phpmailer/PHPMailerAutoload.php');
-        $test = file_exists(path('app/vendor/phpmailer/PHPMailerAutoload.php'));
-        var_dump($test);
-        die;
         try {
             $this->mailer = new \PHPMailer(true);
             if ($this->driver == 'smtp') {
@@ -55,7 +52,6 @@ class Email {
                 $this->mailer->CharSet = $this->charset;
                 $this->mailer->Encoding = "base64";
                 //$this->mailer->SMTPAutoTLS = true;
-                $this->mail->SMTPAuth = true;
                 $this->mailer->SMTPSecure = 'tls';
                 if (!empty($this->smtp_username) and !empty($this->smtp_password)) {
                     $this->mailer->Username = $this->smtp_username;
@@ -65,7 +61,9 @@ class Email {
             }
             $this->mailer->setFrom($this->fromAddress, $this->fromName);
         } catch(\Exception $e) {}
-
+        var_dump($this->mailer);
+        die;
+        
 
     }
 
