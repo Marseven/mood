@@ -12,7 +12,7 @@ class UserModel extends Model {
     }
 
     function isAdmin() {
-        if (config('demo', false)) return true;
+        //if (config('demo', false)) return true;
         if ($this->authUser['role'] == 2) return true;
         return false;
     }

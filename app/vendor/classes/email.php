@@ -41,8 +41,8 @@ class Email {
         $this->smtp_port = config('smtp-port');
         $this->charset = config('email-charset', 'utf-8');
         $this->fromAddress = config('from_address', '');
-        $this->fromName = config('site-title', 'MusicEngine');
-        include_once path('app/vendor/phpmailer/PHPMailerAutoload.php');
+        $this->fromName = config('site-title', 'Mood');
+        include_once path('app\vendor\phpmailer\PHPMailerAutoload.php');
         try {
             $this->mailer = new \PHPMailer(true);
             if ($this->driver == 'smtp') {
@@ -51,8 +51,9 @@ class Email {
                 $this->mailer->Port = $this->smtp_port;
                 $this->mailer->CharSet = $this->charset;
                 $this->mailer->Encoding = "base64";
-                $this->mailer->SMTPAutoTLS = true;
-                $this->mailer->SMTPSecure = 'ssl';
+                //$this->mailer->SMTPAutoTLS = true;
+                $this->mail->SMTPAuth = true;
+                $this->mailer->SMTPSecure = 'tls';
                 if (!empty($this->smtp_username) and !empty($this->smtp_password)) {
                     $this->mailer->Username = $this->smtp_username;
                     $this->mailer->Password = $this->smtp_password;
