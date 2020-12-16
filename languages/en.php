@@ -7,6 +7,7 @@ return array(
     'manage-payments' => 'Manage Payments',
     'manage-reports' => 'Manage Reports',
     'manage-genre' => 'Manage Genre',
+    'manage-mood' => 'Manage Mood',
     'manage-ads' => 'Manage Ads',
     'info-pages' => 'Info Pages',
     'newsletter' => 'Newsletter',
@@ -224,7 +225,13 @@ return array(
     'used-in' => 'Used in',
     'no-genres-display' => 'No genres to display',
     'add-genre' => 'Add Genre',
+    'moods' => 'Moods',
+    'manage-moods' => 'Manage Moods',
+    'used-in' => 'Used in',
+    'no-moods-display' => 'No moods to display',
+    'add-mood' => 'Add Mood',
     'name' => 'Name',
+    'mood' => 'Mood',
     'genre' => 'Genre',
     'playlist' => 'Playlist',
     'playlist-type' => 'Playlist Type',
@@ -1171,5 +1178,9 @@ return array(
 
     //version 2.3.3
     'autofill-upload-data' => 'Enable to Auto fill some of the song information',
+    'mood-picture' => "Mood picture",
+    "pvit" => "Pvit",
+    "airtel-money" => "Airtel Money",
+    "mobicash" => "Mobicash",
 
 );
