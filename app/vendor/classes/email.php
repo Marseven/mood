@@ -51,8 +51,8 @@ class Email {
                 $this->mailer->Port = $this->smtp_port;
                 $this->mailer->CharSet = $this->charset;
                 $this->mailer->Encoding = "base64";
-                $this->mailer->SMTPAutoTLS = false;
-                //$this->mailer->SMTPSecure = 'ssl';
+                //$this->mailer->SMTPAutoTLS = false;
+                $this->mailer->SMTPSecure = 'tsl';
                 if (!empty($this->smtp_username) and !empty($this->smtp_password)) {
                     $this->mailer->Username = $this->smtp_username;
                     $this->mailer->Password = $this->smtp_password;
