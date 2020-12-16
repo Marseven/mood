@@ -712,7 +712,7 @@ function getLanguageName($lang) {
         'fi' => 'Finnish' ,
         'fj' => 'Fiji' ,
         'fo' => 'Faeroese' ,
-        'fr' => 'French' ,
+        'fr' => 'Français' ,
         'fy' => 'Frisian' ,
         'ga' => 'Irish' ,
         'gd' => 'Scots/Gaelic' ,

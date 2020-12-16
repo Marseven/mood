@@ -42,4 +42,7 @@ return array(
     'max-image-size' => '10000000',
     'image-file-types' => 'jpg,png,gif,jpeg',
 
+    'am-marchand' => '074220000',
+    'mc-marchand' => '062020011',
+
 );
