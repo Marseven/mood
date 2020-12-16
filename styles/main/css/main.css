@@ -2039,7 +2039,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     font-size: 13px !important;
 }
 .track-mini-inline .media-heading b{
-    color: white;
+    color: #7451eb;
 }
 
 .track-mini-inline .media-heading .title {
