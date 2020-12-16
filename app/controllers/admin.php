@@ -224,6 +224,49 @@ class AdminController extends Controller {
         return $this->render($this->view('admin/genre/lists', array('genres' => $genres, 'message' => $message)), true);
     }
 
+    public function moods() {
+        $this->activeMenu = 'moods';
+        $this->setTitle(l('manage-moods'));
+        $this->addBreadCrumb(l('manage-moods'));
+
+        $moods = $this->model('admin')->getMoods($this->request->input('term', null));
+        $message = null;
+
+        if ($this->request->input('action') == 'delete' ) {
+            if ($this->isDemo()) $this->defendDemo();
+            $this->model('admin')->deleteMood($this->request->input('id'));
+            $this->request->redirect(url("admin/moods"));
+        }
+        if ($val = $this->request->input('val')) {
+            if ($this->isDemo()) $this->defendDemo();
+            $validator = Validator::getInstance()->scan($val, array(
+                'name' => 'required',
+            ));
+
+            if ($this->request->inputFile('picture')) {
+                $val['picture'] = $this->request->inputFile('picture');
+            }
+
+            if ($validator->passes()) {
+                $this->model('admin')->addMood($val, true);
+
+                //$this->request->redirect(url("admin/moods"));
+                return json_encode(array(
+                    'type' => 'url',
+                    'value' => url("admin/moods"),
+                    'message' => l('mood-added')
+                ));
+            } else {
+                $message = $validator->first();
+                return json_encode(array(
+                    'type' => 'error',
+                    'message' => $message
+                ));
+            }
+        }
+        return $this->render($this->view('admin/mood/lists', array('moods' => $moods, 'message' => $message)), true);
+    }
+
     public function plugins() {
         $this->setTitle(l('plugins-manager'));
         $this->addBreadCrumb(l('plugins-manager'));
@@ -246,6 +289,7 @@ class AdminController extends Controller {
         $this->addBreadCrumb(l('tracks'));
         $this->activeMenu = 'tracks';
         $genre = $this->request->input('genre', '');
+        $mood = $this->request->input('mood', '');
         $user = $this->request->input('user', '');
         $term = $this->request->input('term', '');
         if ($action= $this->request->input('action') == 'delete') {
@@ -310,8 +354,8 @@ class AdminController extends Controller {
             }
 
         }
-        $tracks = $this->model('admin')->getTracks($genre, $term, $user);
-        return $this->render($this->view('admin/tracks/index', array('tracks' => $tracks, 'genre' => $genre, 'term' => $term, 'user' => $user)), true);
+        $tracks = $this->model('admin')->getTracks($genre, $mood, $term, $user);
+        return $this->render($this->view('admin/tracks/index', array('tracks' => $tracks, 'genre' => $genre, 'mood' => $mood, 'term' => $term, 'user' => $user)), true);
     }
 
     public function payments() {

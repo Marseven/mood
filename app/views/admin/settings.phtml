@@ -1080,6 +1080,21 @@
                 <?php endif?>
                 <hr/>
 
+                <h6><?php _l('pvit')?></h6>
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label"><?php _l('airtel-money')?></label>
+                    <div class="col-sm-5">
+                        <input type="text"  name="val[am_marchand]" class="form-control form-control-sm"  value="<?php echo config('am_marchand', '')?>">                        
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label"><?php _l('mobicash')?></label>
+                    <div class="col-sm-5">
+                        <input type="text"  name="val[mc_marchand]" class="form-control form-control-sm"  value="<?php echo config('mc_marchand', '')?>">                        
+                    </div>
+                </div>
+                <hr/>
+
                 <h6><?php _l('amazon-s3-storage')?></h6>
                 <hr/>
                 <div class="form-group row">

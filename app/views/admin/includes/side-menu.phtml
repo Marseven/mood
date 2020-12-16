@@ -18,6 +18,7 @@
             </a></li>
     <?php endif?>
     <li><a id="genres-menu" data-ajax="true" class="sub-menu <?php echo ( $C->activeMenu == 'genres') ? 'active' : null?>" href="<?php echo url('admin/genres')?>"> <i class="la la-list-ul"></i> <?php _l('genres')?></a></li>
+    <li><a id="moods-menu" data-ajax="true" class="sub-menu <?php echo ( $C->activeMenu == 'moods') ? 'active' : null?>" href="<?php echo url('admin/moods')?>"> <i class="fa fa-smile-o"></i> <?php _l('moods')?></a></li>
     <li><a id="tracks-menu" data-ajax="true" class="sub-menu <?php echo ( $C->activeMenu == 'tracks') ? 'active' : null?>" href="<?php echo url('admin/tracks')?>"> <i class="la la-music"></i> <?php _l('tracks')?></a></li>
     <li><a id="playlist-menu" data-ajax="true" class="sub-menu <?php echo ( $C->activeMenu == 'playlist') ? 'active' : null?>" href="<?php echo url('admin/albums')?>"> <i class="la la-indent "></i> <?php _l('manage-playlist-album')?></a></li>
     <li><a id="plugins-menu" data-ajax="true" class="sub-menu <?php echo ( $C->activeMenu == 'plugins') ? 'active' : null?>" href="<?php echo url('admin/plugins')?>"> <i class="la la-level-up"></i> <?php _l('plugins-manager')?></a></li>

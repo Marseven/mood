@@ -11,14 +11,17 @@ class PaymentController extends Controller {
         $type = $this->request->input('type');
         $typeId = $this->request->input('typeid');
         $price = formatMoneyTotal($this->request->input('price'));
+        $reference = reference(6);
 
         session_put("about-pay-type", $type);
         session_put('about-pay-typeid', $typeId);
         session_put("about-pay-price", $price);
+        session_put("about-pay-reference", $reference);
         return $this->view('payment/methods', array(
             'type' => $type,
             'typeId' => $typeId,
             'price' => $price,
+            'reference' => $reference,
             'detail' => $this->model('admin')->getPaymentDetails($type, $typeId)
         ));
     }
@@ -454,6 +457,47 @@ class PaymentController extends Controller {
 
             return $this->model('admin')->saveBankTransfer($val);
 
+        }
+    }
+
+    public function completePvit(){
+        $type = $this->request->input('type');
+        $typeId = $this->request->input('typeid');
+        $price = $this->request->input('price');
+       
+        $data_received=file_get_contents("php://input"); 
+        $data_received_xml=new SimpleXMLElement($data_received); 
+        $ligne_response=$data_received_xml[0]; 
+        $interface_received=$ligne_response->INTERFACEID; 
+        $reference_received=$ligne_response->REF; 
+        $type_received=$ligne_response->TYPE; 
+        $statut_received=$ligne_response->STATUT; 
+        $operateur_received=$ligne_response->OPERATEUR; 
+        $client_received=$ligne_response->TEL_CLIENT; 
+        $message_received=$ligne_response->MESSAGE; 
+        $token_received=$ligne_response->TOKEN; 
+        $agent_received=$ligne_response->AGENT;
+
+        $url = ($type == 'pro' or $type == 'pro-users') ? url('settings/pro') : url();
+        $url = Hook::getInstance()->fire('payment.success.url', $url, array($type, $typeId));
+
+        if ($ligne_response->STATUT == 200) {
+            $this->model('admin')->addTransaction(array(
+                'amount' =>  $price,
+                'type' => $type,
+                'type_id' => $typeId,
+                'sale_id' => $ligne_response->TOKEN,
+                'name' => $this->model('user')->authUser['full_name'],
+                'country' => $this->model('user')->authUser['country'],
+                'telephone' => $ligne_response->TEL_CLIENT,
+                'userid' => $this->model('user')->authId
+            ));
+            Hook::getInstance()->fire('payment.success', null, array($type, $typeId));
+            if (session_get('mobile-pay') == 1) $this->request->request(url('api/pay/success'));
+            $this->request->redirect($url);
+        } else {
+            if (session_get('mobile-pay') == 1) $this->request->request(url('api/pay/failed'));
+            $this->request->redirect(($type == 'pro') ? url('pro') : url());
         }
     }
 }

@@ -10,6 +10,14 @@
                         <a class="nav-link <?php echo ($page == 'latest') ? 'active': null?>" data-ajax="true"  href="<?php echo url('discover/latest')?>" ><?php _l('latest-tracks')?></a>
                     </li>
                     <li class="nav-item dropdown">
+                        <a data-toggle="dropdown" class="nav-link dropdown-toggle <?php echo ($page == 'mood') ? 'active': null?>" href="#" ><?php _l('mood')?></a>
+                        <div class="dropdown-menu">
+                            <?php foreach($C->model('admin')->getMoods() as $dmood):?>
+                                <a data-ajax="true" href="<?php echo url('discover/mood/'.$dmood['id'].'-'.toAscii($dmood['name']))?>" style="font-weight: normal;" class="dropdown-item"><?php echo l($dmood['name'])?></a>
+                            <?php endforeach;?>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
                         <a data-toggle="dropdown" class="nav-link dropdown-toggle <?php echo ($page == 'genre') ? 'active': null?>" href="#" ><?php _l('genre')?></a>
                         <div class="dropdown-menu">
                             <?php foreach($C->model('admin')->getGenres() as $dgenre):?>

@@ -1,7 +1,7 @@
 <?php
 class Translator {
-    private $lang = "fr";
-    private $fallbackLang = "fr";
+    private $lang = "en";
+    private $fallbackLang = "en";
 
     private $namespace = array();
 
@@ -17,7 +17,7 @@ class Translator {
     public function __construct()
     {
         $this->addNamespace("global", path("languages/"));
-        $this->lang = config('default_language', 'fr');
+        $this->lang = config('default_language', 'en');
         if (isset($_COOKIE['language'])) {
             $this->lang = $_COOKIE['language'];
         }

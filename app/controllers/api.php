@@ -153,7 +153,7 @@ class ApiController extends Controller {
             if (config('email-activation', false)) {
                 return json_encode(array(
                     'message' => l('signup-successful-activate'),
-                    'status' => 2 //activate account my mail
+                    'status' => 2 //activate accoun my mail
                 ));
             }
 
@@ -235,6 +235,21 @@ class ApiController extends Controller {
                 'id' => $genre['id'],
                 'name' => $genre['name'],
                 'uses' => $genre['uses']
+            );
+        }
+
+        return json_encode($result);
+    }
+
+    public function getMoods() {
+        $this->userAuth(false);
+        $term = $this->request->input('term', '');
+        $result = array();
+        foreach($this->model('admin')->getMoods($term) as $mood) {
+            $result[] = array(
+                'id' => $mood['id'],
+                'name' => $mood['name'],
+                'uses' => $mood['uses']
             );
         }
 

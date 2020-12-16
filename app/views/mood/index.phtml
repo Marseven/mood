@@ -1,0 +1,84 @@
+<div class="inner-container">
+    <div class="row mt-4">
+        <div class="col-md-8">
+            
+            <?php if($moods):?>
+                <div class="horizontal-list">
+                    <div class="clearfix">
+                        <div class="float-left" style="width: 80%">
+                            <div class="title">
+                                 <?php _l('moods')?>
+                                <span><?php _l('new-hot-note')?></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="slider" >
+                        <div class="swiper-container" id="new-hot-slider">
+                            <div class="swiper-wrapper">
+                                <?php foreach($moods as $mood):?>
+                                    <div class="swiper-slide">
+                                        <div class="list">
+                                            <div class="art round-sm" style="background-image: url(<?php echo $C->model('admin')->getPictureMood($mood,600)?>);">
+                                                <?php Hook::getInstance()->fire('mood.slide.art', null, array($mood))?>
+                                            </div>
+
+                                            <a class="title" <?php echo (!isset($home)) ? 'data-ajax="true"' : null?> href="<?php echo url('discover/mood/'.$mood['id'].'-'.toAscii($mood['name']))?>">
+                                                <h3><?php echo format_output_text($mood['name'])?></h3>
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php endforeach;?>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next  scroller scroll-right" id="new-hot-slider-next"><i class="la  la-angle-right"></i></div>
+                        <div class="swiper-button-prev scroller scroll-left" id="new-hot-slider-right"><i class="la  la-angle-left"></i></div>
+                    </div>
+
+                </div>
+
+            <?php endif?>
+
+
+            <div class="horizontal-list" style="border:none">
+                <div class="clearfix">
+                    <div class="float-left" style="width: 80%">
+                        <div class="title">
+                            <?php _l('charts')?> : <?php _l('this-week-top-50')?>
+                            <span><?php _l('this-week-top-note')?></span>
+                        </div>
+                    </div>
+                    <div class="float-right">
+
+                    </div>
+                </div>
+
+
+                <div class="full-slider slider" >
+                    <div class="swiper-container" id="new-top-slider">
+                        <div class="swiper-wrapper">
+                            <?php foreach($C->model('track')->getTracks('charts-top', 'all/'.config('chart-top-time', 'this-week'),0,10) as $track):?>
+                                <?php echo $C->view('track/track-slide', array('track' => $track, 'type' => 'charts-top', 'typeId' => 'all/'.config('chart-top-time', 'this-week')))?>
+                            <?php endforeach;?>
+
+                        </div>
+                    </div>
+                    <div class="swiper-button-next  scroller scroll-right" id="top-50-slider-next"><i class="la  la-angle-right"></i></div>
+                    <div class="swiper-button-prev scroller scroll-left" id="top-50-slider-right"><i class="la  la-angle-left"></i></div>
+                </div>
+
+                <div class="clearfix">
+                    <a data-ajax="true" href="<?php echo url('charts/top')?>" class="btn btn-sm btn-outline-secondary float-right round-sm"><?php _l('more-on-charts')?></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <?php echo $C->view('search/tags')?>
+
+            <?php echo $C->view('home/general-right', array('completion' => false))?>
+        </div>
+
+
+    </div>
+</div>

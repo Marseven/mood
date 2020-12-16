@@ -549,7 +549,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     position: absolute;
     left: 0px;
     top: 0;
-    height: 38px;
+    height: 40px;
     border: solid 1px #E9ECEF;
     padding-left: 5px;
     padding-right: 5px;
@@ -2272,8 +2272,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     position: relative !important;
     width: 130px;
     height:130px;
-    border-radius:100px;
-    margin-left: 24px;
+    border-radius:100px
 }
 #top-artist-slider .list .grid-title-container {
     text-align: center;
@@ -2911,11 +2910,6 @@ b{
 .grid-container .grid .grid-title-container {
     padding: 10px 10px;
 }
-
-.grid-title-container .dark-mode a {
-    color: #000;
-}
-
 .grid-container .grid .grid-title-container .grid-info{
     color: #7451eb;
     font-weight: 600;
@@ -5369,7 +5363,7 @@ b{
     opacity: 1 !important;
 }
 .dark-mode a {
-    color: grey ;
+    color: #fff ;
 }
 .dark-mode #sideHeader, .dark-mode .in-header {
     background: #161616 !important;;

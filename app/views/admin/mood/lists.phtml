@@ -1,0 +1,93 @@
+<div class="inner-container mt-4">
+    <div class="title clearfix" style="margin-bottom: 20px">
+        <div class="float-left">
+            <form class="form-inline" method="post">
+                <div class="input-group mb-2 mb-sm-0">
+                    <div class="input-group-addon"><i class="la la-search"></i></div>
+                    <input type="text" name="term" class="form-control" id="inlineFormInputGroup" placeholder="<?php _l('search')?>">
+                </div>
+            </form>
+        </div>
+        <div class="float-right">
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-7">
+            <?php if(count($moods) > 0):?>
+                <div class="mt-5">
+                    <?php foreach($moods as $mood):?>
+                        <hr/>
+                        <div class="media" style="margin-bottom: 10px;">
+                            <img src="<?php echo $C->model('admin')->getPictureMood($mood)?>" class="mr-3 avatar" style="width: 100px;"/>
+                            <div class="media-body clearfix">
+                                <div class="float-left">
+                                    <h5 class="mt-0"><a data-ajax="true" href="<?php echo url('')?>"><?php echo $mood['name']?></a></h5>
+                                    <span><?php _l('used-in')?> <?php echo $C->model('track')->countMoodTracks($mood['id'])?> <strong><?php _l('tracks')?></strong></span>  
+                                </div>
+                                <div class="float-right">
+                                    <div class="">
+                                        <a class="confirm no-caret btn btn-sm btn-danger" href="<?php echo url('admin/moods', array('action'=> 'delete', 'id' => $mood['id']))?>" role="button"  >
+                                            <i class="la la-trash-o"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <?php endforeach;?>
+                </div>
+            <?php else:?>
+                <div class="alert alert-warning mt-5" ><?php _l('no-moods-display')?></div>
+            <?php endif?>
+        </div>
+        <div class="col-md-5">
+            <div class="box mt-5" >
+                <?php if($message):?>
+                    <div class="alert alert-danger"><?php echo $message?></div>
+                <?php endif?>
+                <div class="box-title"><?php _l('add-mood')?></div>
+                <form action="<?php echo getFullUrl(true)?>" class="general-form" method="post">
+
+                    <div class="form-group">
+                        <input autocomplete="off" name="val[name]" type="text" class="form-control"   placeholder="<?php _l('name')?>">
+                    </div>
+
+                    <div class="form-group">
+                        <textarea autocomplete="off" name="val[description]" class="form-control"   placeholder="<?php _l('description')?>"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="bold"><?php _l('mood-picture')?></label>
+                                <span class="form-text text-muted"><?php echo config('image-file-types', 'jpg,png,gif,jpeg')?></span>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="input-picker mb-3">
+                                            <button class="btn btn-outline-secondary btn-sm btn-block"><i class="la la-upload"></i></button>
+                                            <input data-placeholder="#profileAvatar" onchange="validate_file_size(this, 'image')" type="file" name="picture" />
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="avatar-placeholder">
+                                            <div id="profileAvatar" style="background-image: url(<?php echo $C->model('admin')->getPictureMood(null, 200)?>);display: block;"></div>
+                                            <i class="la la-photo"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" data-size="s" data-style="zoom-in" type="submit" class="btn round-sm btn-primary btn-sm ladda-button" id="user-edit-button"><?php _l('submit')?></button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

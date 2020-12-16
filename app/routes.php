@@ -11,6 +11,7 @@ $request->any('admin/verification/request', array('uses' => 'admin@verify'));
 $request->any('admin/user/action', array('uses' => 'admin@userAction'));
 $request->any('admin/user/edit', array('uses' => 'admin@userEdit'));
 $request->any('admin/genres', array('uses' => 'admin@genres'));
+$request->any('admin/moods', array('uses' => 'admin@moods'));
 $request->any('admin/plugins', array('uses' => 'admin@plugins'));
 $request->any('admin/tracks', array('uses' => 'admin@tracks'));
 $request->any('admin/payments', array('uses' => 'admin@payments'));
@@ -60,6 +61,7 @@ $request->any('notification/paginate', array('uses' => 'user@notificationPaginat
 $request->any('check/notification', array('uses' => 'user@checkNotification'));
 
 $request->any('charts', array('uses' => 'home@charts', 'secure' => false));
+$request->any('moods', array('uses' => 'home@moods', 'secure' => false));
 $request->any('charts/trending', array('uses' => 'home@charts', 'secure' => false));
 $request->any('charts/top', array('uses' => 'home@charts', 'secure' => false));
 $request->any('discover', array('uses' => 'home@discover', 'secure' => false));
@@ -68,6 +70,7 @@ $request->any('discover/artists', array('uses' => 'home@discover', 'secure' => f
 $request->any('discover/albums', array('uses' => 'home@discover', 'secure' => false));
 $request->any('discover/playlists', array('uses' => 'home@discover', 'secure' => false));
 $request->any('discover/genre/{id}', array('uses' => 'home@discover', 'secure' => false))->where(array('id' => '[a-zA-Z0-9\_\-]+'));
+$request->any('discover/mood/{id}', array('uses' => 'home@discover', 'secure' => false))->where(array('id' => '[a-zA-Z0-9\_\-]+'));
 $request->any('upload', array('uses' => 'home@upload'));
 $request->any('search/tags', array('uses' => 'home@searchTags'));
 
@@ -161,6 +164,8 @@ $request->any('payment/stripe/cancel', array('uses' => 'payment@stripeCancel', '
 $request->any('payment/paypal', array('uses' => 'payment@initPaypal'));
 $request->any('payment/paypal/complete', array('uses' => 'payment@completePaypal'));
 
+$request->any('payment/pvit/complete', array('uses' => 'payment@completePvit'));
+
 $request->any('payment/bank/transfer', array('uses' => 'payment@bankTransfer'));
 
 $request->any('payment/mollie', array('uses' => 'payment@initMollie'));
@@ -182,6 +187,7 @@ $request->any('api/{key}/signup', array('uses' => 'api@signup', 'secure' => fals
 $request->any('api/{key}/check/auth', array('uses' => 'api@checkAuth', 'secure' => false))->where(array('key' => '[a-zA-Z0-9\_\-]+'));
 $request->any('api/{key}/load/tracks', array('uses' => 'api@loadTracks', 'secure' => false))->where(array('key' => '[a-zA-Z0-9\_\-]+'));
 $request->any('api/{key}/genres', array('uses' => 'api@getGenres', 'secure' => false))->where(array('key' => '[a-zA-Z0-9\_\-]+'));
+$request->any('api/{key}/moods', array('uses' => 'api@getMoods', 'secure' => false))->where(array('key' => '[a-zA-Z0-9\_\-]+'));
 $request->any('api/{key}/load/comments', array('uses' => 'api@loadComments', 'secure' => false))->where(array('key' => '[a-zA-Z0-9\_\-]+'));
 $request->any('api/{key}/add/comment', array('uses' => 'api@addComment', 'secure' => false))->where(array('key' => '[a-zA-Z0-9\_\-]+'));
 $request->any('api/{key}/remove/comment', array('uses' => 'api@removeComment', 'secure' => false))->where(array('key' => '[a-zA-Z0-9\_\-]+'));

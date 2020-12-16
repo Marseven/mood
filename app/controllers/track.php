@@ -8,21 +8,21 @@ class TrackController extends Controller {
     public function upload() {
         $audio = $this->request->inputFile('track_file');
 
-        include_once(path('app/vendor/james-heinrich/getid3/getid3/getid3.php' ));
-        
+        include_once(path('app/vendor/james-heinrich/getid3/getid3/getid3.php'));
         $uploader = new Uploader($audio, 'audio');
         $audioSize = $uploader->sourceSize;
         $val = array(
             'number' => $this->request->input('number')
         );
-       
+        
         $uploader->setPath("tracks/".$this->model('user')->authId.'/tracks/'.date('Y').'/');
         if ($uploader->passed()) {
             $val['size'] = $audioSize;
             $sourceFile = $audio['tmp_name'];
+
             $tmpMove = $uploader->uploadFile()->result();
             $file = path($tmpMove);
-            $getID3 = new getID3();
+            $getID3 = new getID3;
             $ThisFileInfo = $getID3->analyze(path($tmpMove));
             $val['duration'] = $ThisFileInfo['playtime_seconds'];
             $dir = md5($file);
@@ -61,6 +61,7 @@ class TrackController extends Controller {
                 $val['waveColored'] = $waveColored;
             }
             $tmpMove = $this->uploadFile($tmpMove);
+            
             Database::getInstance()->query("INSERT INTO tmp_files (path,time)VALUES(?,?)", $tmpMove, time()); //add the files do later delete
             $val['audio'] = $tmpMove;
         } else {

@@ -227,10 +227,22 @@
                         <textarea onchange="autoFillDescription(this)" onkeyup="autoFillDescription(this)" rows="4" name="val[description][]"  class="form-control form-control-sm upload-description-input" ></textarea>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             <div class="form-group">
                                 <label><?php _l('tags')?><span class="important">*</span></label>
                                 <input  data-popup="true" onchange="autoFillTags(this)" required autocomplete="off" type="text" name="val[tags][]" class=" input-tags-temp" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group ">
+                                <label><?php _l('mood')?></label>
+                                <select onchange="autoFillMood(this)" data-popup="true" data-ui-select="true" class=" select-input-temp upload-mood-input" name="val[mood][]">
+                                    <?php foreach ($C->model('admin')->getMoods() as $mood):?>
+                                        <option value="<?php echo $mood['id']?>"><?php echo $mood['name']?></option>
+                                    <?php endforeach;?>
+                                </select>
                             </div>
                         </div>
                         <div class="col-sm-6">

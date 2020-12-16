@@ -108,6 +108,7 @@ class TrackModel extends Model {
          * @var $wave
          * @var $wave_colored
          * @var $genre
+         * @var $mood
          * @var $comments
          * @var $release_date
          * @var $stats
@@ -132,6 +133,7 @@ class TrackModel extends Model {
             'wave' => '',
             'wave_colored' => '',
             'genre' => '',
+            'mood' => '',
             'comments' => 1,
             'release_date' => '',
             'stats' => 1,
@@ -152,8 +154,8 @@ class TrackModel extends Model {
             $time = time();
             try{
 
-                $query = $this->db->query("INSERT INTO tracks (featuring, lyrics, download_hash,release_date,comments,stats,embed,title,userid,description,tag,genre,art,buy,record,track_release,license,size,track_file,public,downloads,wave,wave_colored,time,track_duration,slug)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-                    $featuring, $lyrics, generateHash(time()),$release_date, $comments, $stats, $embed,$title,$userid,$description,$tags,$genre,$art,$link,$label,$release,$license,$size,$audio,$privacy,$download,$wave,$wave_colored,$time,$duration,$slug);
+                $query = $this->db->query("INSERT INTO tracks (featuring, lyrics, download_hash,release_date,comments,stats,embed,title,userid,description,tag,genre,mood,art,buy,record,track_release,license,size,track_file,public,downloads,wave,wave_colored,time,track_duration,slug)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                    $featuring, $lyrics, generateHash(time()),$release_date, $comments, $stats, $embed,$title,$userid,$description,$tags,$genre,$mood,$art,$link,$label,$release,$license,$size,$audio,$privacy,$download,$wave,$wave_colored,$time,$duration,$slug);
 
                 $trackId = $this->db->lastInsertId();
 
@@ -175,8 +177,8 @@ class TrackModel extends Model {
 
             $lyrics = ($lyrics) ? $lyrics : $track['lyrics'];
 
-            $this->db->query("UPDATE tracks SET featuring=?,lyrics=?, release_date=?,comments=?,stats=?,embed=?,title=?,description=?,tag=?,genre=?,art=?,buy=?,record=?,track_release=?,license=?,public=?,downloads=?,slug=? WHERE id=? ",
-                $featuring,$lyrics,$release_date, $comments, $stats, $embed,$title,$description,$tags,$genre,$art,$link,$label,$release,$license,$privacy,$download,$slug,$track['id']);
+            $this->db->query("UPDATE tracks SET featuring=?,lyrics=?, release_date=?,comments=?,stats=?,embed=?,title=?,description=?,tag=?,genre=?,mood=?,art=?,buy=?,record=?,track_release=?,license=?,public=?,downloads=?,slug=? WHERE id=? ",
+                $featuring,$lyrics,$release_date, $comments, $stats, $embed,$title,$description,$tags,$genre,$mood,$art,$link,$label,$release,$license,$privacy,$download,$slug,$track['id']);
 
             if (isset($audio)) {
                 $this->db->query("UPDATE tracks SET size=?,track_file=?,wave=?,wave_colored=?,track_duration=? WHERE id=?", $size, $audio,$wave,$wave_colored,$duration, $track['id']);
@@ -338,6 +340,9 @@ class TrackModel extends Model {
             $sql .= " ORDER BY count DESC";
         }elseif($type == 'genre') {
             $sql = "SELECT * FROM  tracks WHERE  userid NOT IN ($blockedIds)AND userid NOT IN ($expiredArtists)  AND status=? AND genre=? AND (public != ? AND public != ?)  AND approved=?  ORDER BY id DESC";
+            $param = array(1, $typeId, 3,2,1);
+        }elseif($type == 'mood') {
+            $sql = "SELECT * FROM  tracks WHERE  userid NOT IN ($blockedIds)AND userid NOT IN ($expiredArtists)  AND status=? AND mood=? AND (public != ? AND public != ?)  AND approved=?  ORDER BY id DESC";
             $param = array(1, $typeId, 3,2,1);
         }elseif($type == 'latest') {
             $sql = "SELECT * FROM  tracks WHERE userid NOT IN ($blockedIds) AND userid NOT IN ($expiredArtists)  AND status=? AND (public != ? AND public != ?)  AND approved=?  ORDER BY id DESC";
@@ -1078,6 +1083,11 @@ class TrackModel extends Model {
         return $query->rowCount();
     }
 
+    public function countMoodTracks($id) {
+        $query = $this->db->query("SELECT id FROM tracks WHERE mood=? ", $id);
+        return $query->rowCount();
+    }
+
     public function searchTags($term = null) {
         if (!$term) return json_encode(array());
         $query = $this->db->query("SELECT * FROM tags WHERE title LIKE ? ", "%$term%");
@@ -1353,6 +1363,11 @@ class TrackModel extends Model {
 
     public function getRandomTrackArtByGenre($genre) {
         $query = $this->db->query("SELECT * FROM tracks WHERE genre=? AND art !='' ORDER BY rand() LIMIT 1", $genre);
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getRandomTrackArtByMood($mood) {
+        $query = $this->db->query("SELECT * FROM tracks WHERE mood=? AND art !='' ORDER BY rand() LIMIT 1", $mood);
         return $query->fetch(PDO::FETCH_ASSOC);
     }
 }

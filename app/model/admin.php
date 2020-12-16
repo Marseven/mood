@@ -63,6 +63,62 @@ class AdminModel extends Model {
         return $this->db->query("DELETE FROM genre WHERE id=? ", $id);
     }
 
+    public function getMoods($term = '') {
+        $sql = "SELECT * FROM mood  ";
+        $param = array();
+        if ($term) {
+            $term = '%'.$term.'%';
+            $sql .= "WHERE name LIKE ? ";
+            $param[] = $term;
+
+        }
+        $query = $this->db->query($sql, $param);
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function getPictureMood($mood=null, $size = 75) {
+        $picture = ($mood['picture'] != null) ? $mood['picture'] : 'assets/images/picture-mood.png';
+        return url_img($picture, $size);
+    }
+
+    public function addMood($val) {
+        /**
+         * @var $name
+         */
+        extract($val);
+        
+
+        if ($picture) {
+                        
+            $uploader = new Uploader($picture);
+            $uploader->setPath('mood/');
+            if ($uploader->passed()) {
+                $picture = $uploader->resize()->result();
+            } else {
+                return json_encode(array('type' => 'error', 'message' => $uploader->getError()));
+            }
+        }
+
+        if (!$this->moodExists($name)) {
+            $this->db->query("INSERT INTO mood (name,description,picture) VALUES(?,?,?)", $name, $description,$picture);
+            return true;
+        }
+        return false;
+    }
+
+    public function moodExists($name) {
+        $query = $this->db->query("SELECT id from mood WHERE name=?", $name);
+        return $query->rowCount();
+    }
+
+    public function findMood($id) {
+        $query = $this->db->query("SELECT * from mood WHERE id=?", $id);
+        return $query->fetch(PDO::FETCH_ASSOC);
+    }
+    public function deleteMood($id) {
+        return $this->db->query("DELETE FROM genre WHERE id=? ", $id);
+    }
+
     public function addTransaction($details) {
         $ex = array(
             'name' => '',

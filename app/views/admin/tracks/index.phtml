@@ -30,6 +30,7 @@
             <th scope="col" style="width: 20%;"><?php _l('by')?></th>
             <th scope="col" style="width: 25%;"><?php _l('title')?></th>
             <th scope="col" style="width: 10%;"><?php _l('genre')?></th>
+            <th scope="col" style="width: 10%;"><?php _l('mood')?></th>
             <th scope="col" style="width: 10%;"><?php _l('status')?></th>
             <th scope="col" style="width: 10%;"><?php _l('added-on')?></th>
             <th scope="col" style="width: 15%;"><?php _l('action')?></th>
@@ -49,6 +50,10 @@
                     <td>
                         <?php $theGenre = $C->model('admin')->findGenre($track['genre'])?>
                         <?php echo $theGenre['name']?>
+                    </td>
+                    <td>
+                        <?php $theMood = $C->model('admin')->findMood($track['mood'])?>
+                        <?php if($theMood == false) {echo "Pas de Mood"; }else{echo $theMood['name'];} ?>
                     </td>
                     <td>
                         <span class="badge badge-dark"><?php echo $track['status'] ? l('active') : l('not-active')?></span>
@@ -110,6 +115,15 @@
                                                 <select data-ui-select="true" class=" select-input" name="val[genre]">
                                                     <?php foreach ($C->model('admin')->getGenres() as $genre):?>
                                                         <option <?php echo $genre['id'] == $track['genre'] ? 'selected': null?> value="<?php echo $genre['id']?>"><?php echo $genre['name']?></option>
+                                                    <?php endforeach;?>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group ">
+                                                <label><?php _l('mood')?></label>
+                                                <select data-ui-select="true" class=" select-input" name="val[mood]">
+                                                    <?php foreach ($C->model('admin')->getMoods() as $mood):?>
+                                                        <option <?php echo $mood['id'] == $track['mood'] ? 'selected': null?> value="<?php echo $mood['id']?>"><?php echo $mood['name']?></option>
                                                     <?php endforeach;?>
                                                 </select>
                                             </div>

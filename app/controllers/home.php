@@ -82,7 +82,7 @@ class HomeController extends Controller {
                'titles' => 'required',
                 //'tags' => 'required'
             ));
-
+            
             if ($validator->passes()) {
 
                 $artFile = $this->request->inputFile('img');
@@ -112,7 +112,7 @@ class HomeController extends Controller {
 
                 $lyricsUploaded = array();
 
-
+                
                 $i = 0;
                 foreach($audioFiles as $audioFile) {
                     if ($lyricsFile = $this->request->inputFile('lyrics_'.$i)) {
@@ -187,6 +187,7 @@ class HomeController extends Controller {
                     $newVal['label'] = $val['label'][$i];
                     $newVal['link'] = $val['link'][$i];
                     $newVal['genre'] = $val['genre'][$i];
+                    $newVal['mood'] = $val['mood'][$i];
                     $newVal['tags'] = $val['tags'][$i];
                     $newVal['description'] = $val['description'][$i];
 
@@ -198,8 +199,9 @@ class HomeController extends Controller {
 
 
                     $newVal = Hook::getInstance()->fire('track.upload.data', $newVal, array($i));
+                    
                     $tracks[] = $this->model('track')->add($newVal, null, false, $ownerId);
-
+                    
                     $i++;
                 }
 
@@ -406,12 +408,23 @@ class HomeController extends Controller {
         $this->setTitle(l('charts'));
         $this->activeMenu = 'charts';
         $page = $this->request->segment(1, 'new-hot');
-        $genre = $this->request->input('genre', 'all');
+        $mood = $this->request->input('mood', 'all');
         $time = $this->request->input('time', config(($page == 'new-hot') ? 'chart-new-hot-time' : 'chart-top-time', 'this-week'));
 
         $this->addBreadCrumb(($page == 'top') ? l('top-50') : l($page));
 
-        return $this->render($this->view('charts/index', array('page' => $page, 'genre' => $genre, 'time' => $time)), true);
+        return $this->render($this->view('charts/index', array('page' => $page, 'mood' => $mood, 'time' => $time)), true);
+    }
+
+    public function moods() {
+        $this->setTitle(l('moods'));
+        $this->activeMenu = 'moods';
+        $page = $this->request->segment(1, 'moods');
+        $moods = $this->model('admin')->getMoods();
+        
+        $this->addBreadCrumb(($page == 'top') ? l('moods') : l($page));
+
+        return $this->render($this->view('mood/index', array('page' => $page, 'moods' => $moods)), true);
     }
 
     public function discover() {
@@ -427,6 +440,13 @@ class HomeController extends Controller {
                 $genre = $this->model('admin')->findGenre($id);
                 $this->addBreadCrumb($genre['name']);
                 $content = $this->view('discover/genre', array('id' => $id));
+                break;
+            case 'mood':
+                $id = explode('-', $this->request->segment(2));
+                $id = $id[0];
+                $mood = $this->model('admin')->findMood($id);
+                $this->addBreadCrumb($mood['name']);
+                $content = $this->view('discover/mood', array('id' => $id));
                 break;
             case 'latest':
                 $content = $this->view('discover/latest');
@@ -863,7 +883,7 @@ class HomeController extends Controller {
         foreach($this->model('admin')->getGenres() as $genre) {
             $this->urlElement(url('videos/category/'.$genre['id']), time());
         }
-
+        
         $query = Database::getInstance()->query("SELECT * FROM tracks");
         while($track = $query->fetch(PDO::FETCH_ASSOC)) {
             $this->urlElement($this->model('track')->trackUrl($track), $track['time']);

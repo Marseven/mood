@@ -81,6 +81,28 @@ function select_genre(id) {
     return false;
 }
 
+function select_mood(id) {
+
+    if ($(".each-mood-"+id + ' input').prop('checked') !== false ) {
+        $(".each-mood-"+id + ' i').fadeOut();
+        $(".each-mood-"+id + ' input').removeAttr('checked');
+    } else {
+        $(".each-mood-"+id + ' i').fadeIn();
+        $(".each-mood-"+id + ' input').prop('checked', 'checked');
+    }
+
+    var $checkboxes = $('.each-mood input[type="checkbox"]');
+    var countCheckedCheckboxes = $checkboxes.filter(':checked').length;
+    if (countCheckedCheckboxes > 0) {
+        $("#getstarted-step-2-btn").removeClass('disabled');
+        $("#getstarted-step-2-btn").removeAttr('disabled');
+    } else {
+        $("#getstarted-step-2-btn").addClass('disabled');
+        $("#getstarted-step-2-btn").attr('disabled', 'disabled');
+    }
+    return false;
+}
+
 function getstarted_selectUser(id) {
     if ($(".each-welcome-user-"+id + ' input').prop('checked') !== false ) {
         $(".each-welcome-user-"+id + ' i').fadeOut();
@@ -108,6 +130,11 @@ function reloadCharts(url) {
     var genre = $("#filter-genre").val();
     var time = $("#filter-time").val();
     load_page(buildLink(url, [{key: 'genre', value: genre}, {key: 'time', value: time}]));
+}
+function reloadChartsMood(url) {
+    var mood = $("#filter-mood").val();
+    var time = $("#filter-time").val();
+    load_page(buildLink(url, [{key: 'mood', value: mood}, {key: 'time', value: time}]));
 }
 function showReportTrack(id){
     $("#reportTrack #report-track").val(id);
@@ -1339,6 +1366,22 @@ function autoFillGenre(t) {
         var value = control.getValue();
 
         $('.upload-genre-input').each(function() {
+            var select = $('#' + $(this).attr('id'))[0];
+            if (select != undefined) {
+                select.selectize.setValue(value, true);
+            }
+        });
+
+    }, 300)
+}
+function autoFillMood(t) {
+    if (window.autoFillUploadData == false) return false;
+    setTimeout(function() {
+        $select = $(t);
+        var control = $select[0].selectize;
+        var value = control.getValue();
+
+        $('.upload-mood-input').each(function() {
             var select = $('#' + $(this).attr('id'))[0];
             if (select != undefined) {
                 select.selectize.setValue(value, true);
@@ -3668,6 +3711,11 @@ function buy_item(type, id) {
 
 function load_store_browse(t, w) {
     load_page(buildLink('store/browse', [{key: 'which', value: w}, {key:'genre', value: $(t).val()}]));
+    return false;
+}
+
+function load_store_browse_mood(t, w) {
+    load_page(buildLink('store/browse', [{key: 'which', value: w}, {key:'mood', value: $(t).val()}]));
     return false;
 }
 

@@ -712,7 +712,7 @@ function getLanguageName($lang) {
         'fi' => 'Finnish' ,
         'fj' => 'Fiji' ,
         'fo' => 'Faeroese' ,
-        'fr' => 'Français' ,
+        'fr' => 'French' ,
         'fy' => 'Frisian' ,
         'ga' => 'Irish' ,
         'gd' => 'Scots/Gaelic' ,
@@ -1354,4 +1354,9 @@ function getRawCurriencies() {
 function getCurrencySymbol($currency) {
     $curnencies = getRawCurriencies();
     return $curnencies[$currency]['symbol'];
+}
+
+function reference($length){
+    $alphabet = "0123456789azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN";
+    return substr(str_shuffle(str_repeat($alphabet, $length)), 0, $length);
 }
