@@ -712,7 +712,7 @@ function getLanguageName($lang) {
         'fi' => 'Finnish' ,
         'fj' => 'Fiji' ,
         'fo' => 'Faeroese' ,
-        'fr' => 'French' ,
+        'fr' => 'Français' ,
         'fy' => 'Frisian' ,
         'ga' => 'Irish' ,
         'gd' => 'Scots/Gaelic' ,
@@ -962,9 +962,9 @@ function formatMoney($total, $symbol = '') {
     //$total = Hook::getInstance()->fire('money_after_format_without_currency', $total);
 
     if ($currency_placement === 'after') {
-        $_formatted = $total . '' . $symbol;
+        $_formatted = $total . ' ' . $symbol;
     } else {
-        $_formatted = $symbol . '' . $total;
+        $_formatted = $symbol . ' ' . $total;
     }
 
     //$_formatted = Hook::getInstance()->fire('money_after_format_with_currency', $_formatted);

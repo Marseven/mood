@@ -9,7 +9,7 @@
        <?php Hook::getInstance()->fire('global.side')?>
 
     <?php if($C->model('user')->isLoggedIn()):?>
-       <?php $people = $C->model('user')->getPeople('suggestion', null, 3)?>
+       <?php $people = $C->model('user')->getPeople('suggestion', null, 4)?>
        <?php if(count($people) > 0):?>
 
            <div class="card-list mt-3  bg-card">

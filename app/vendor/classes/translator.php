@@ -17,7 +17,7 @@ class Translator {
     public function __construct()
     {
         $this->addNamespace("global", path("languages/"));
-        $this->lang = config('default_language', 'en');
+        $this->lang = config('default_language', 'fr');
         if (isset($_COOKIE['language'])) {
             $this->lang = $_COOKIE['language'];
         }

@@ -760,7 +760,7 @@ class TrackController extends Controller {
         $track = $this->model('track')->findTrack($id);
         if ($track['userid'] != $this->model('user')->authId) return $this->request->redirectBack();
         $this->model('admin')->deleteTrack($id);
-        return $this->request->redirect(url());
+        return $this->request->redirect_back();
     }
 
     public function deletePlaylist() {
@@ -769,7 +769,7 @@ class TrackController extends Controller {
         $playlist = $this->model('track')->findPlaylist($id);
         if ($playlist['userid'] != $this->model('user')->authId) return $this->request->redirectBack();
         $this->model('admin')->deletePlaylist($id);
-        return $this->request->redirect(url());
+        return $this->request->redirect_back();
     }
 
     public function downloadTrack() {

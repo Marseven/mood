@@ -482,7 +482,9 @@ class UserModel extends Model {
     }
 
     public function subscriptionActive($userid = null) {
-        if (!config('enable-premium', false)) return true;
+        //if (!config('enable-premium', false)) return true;
+        $user = $this->getUser($userid);
+        if ($user['user_type'] == 2) return true;
         $userid = $userid ? $userid : $this->authId;
         $lastTransaction = $this->C->model('admin')->getLastTransaction($userid, 'pro');
         if ($lastTransaction) {
@@ -503,6 +505,8 @@ class UserModel extends Model {
 
     public function lastTransactionExpired($userid) {
         $userid = $userid ? $userid : $this->authId;
+        var_dump($this->C->model('admin')->getLastTransaction($userid, 'pro'));
+        var_dump($userid);
         $lastTransaction = $this->C->model('admin')->getLastTransaction($userid, 'pro');
         if ($lastTransaction) {
             if ($lastTransaction['valid_time'] > time() and $lastTransaction['status']) return 'active';
@@ -789,7 +793,7 @@ class UserModel extends Model {
             $followingIds[] = $this->authId;
             $blockIds = $this->blockIds();
             $followingIds = implode(',', $followingIds);
-            $query = $this->db->query("SELECT * FROM users WHERE id NOT IN ($followingIds) AND id NOT IN ($blockIds) AND avatar !=''  ORDER BY rand() LIMIT $limit OFFSET $offset");
+            $query = $this->db->query("SELECT * FROM users WHERE id NOT IN ($followingIds) AND id NOT IN ($blockIds) AND avatar !='' AND user_type = 2  ORDER BY rand() LIMIT $limit OFFSET $offset");
             return $query->fetchAll(PDO::FETCH_ASSOC);
         } elseif($type == 'top') {
 

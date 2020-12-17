@@ -130,6 +130,12 @@ label{
     border-color: #F1F1F1;
     background: #fff;
 }
+
+.dark-mode .btn-outline-secondary {
+    border-color: #F1F1F1;
+    background: #7451eb;
+}
+
 .btn-primary:hover, .btn-primary:active{
     background: #003668 !important;
     border-color:#003668 !important;;
@@ -832,7 +838,7 @@ input.cmn-toggle-round-flat:checked + label:after {
 }
 .each-track .title-container a{
     font-weight: 600;
-    color: white;
+    color: grey;
 }
 .actions-container .btn {
 

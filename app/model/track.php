@@ -52,13 +52,12 @@ class TrackModel extends Model {
 
     public function displayItem($track, $allowOwner = false) {
         if (!config('disable-tracks', true) or !config('enable-premium', false)) return true;
-
-        $result = model('user')->lastTransactionExpired($track['userid']);
+        /*if(model('user')) $result = model('user')->lastTransactionExpired($track['userid']);
         if (!$result) return true;
         if ($result == 'expired') {
             if ($allowOwner and $track['userid'] == model('user')->authId) return true;
             //return false;
-        }
+        }*/
         return true;
     }
 

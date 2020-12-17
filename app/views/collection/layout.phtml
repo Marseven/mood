@@ -2,6 +2,7 @@
 <div class="inner-container">
     <div class="row mt-4">
         <div class="col-md-8">
+            <?php echo config('ad-unit1')?>
             <?php Hook::getInstance()->fire('global.top')?>
             <?php echo $content?>
         </div>

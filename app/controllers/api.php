@@ -9,7 +9,7 @@ class ApiController extends Controller {
         $apiKey = config('api-access-key', 'o0q0aOmm4M0JEA');
         $providedKey = $this->request->segment(1);
         if ($apiKey != $providedKey) return json_encode(array('status' => 0));
-        header('Access-Control-Allow-Origin: http://localhost:9080');
+        header('Access-Control-Allow-Origin: http://moodmusic.fun:9080');
     }
 
     private function userAuth($force = true) {
