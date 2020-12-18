@@ -1728,6 +1728,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     position: absolute;
     top: 40px;
     right: 0;
+    font-size: 11px;
 }
 .playlist-tracks-total .count{
     font-size: 20px;
