@@ -64,7 +64,17 @@ class AdminModel extends Model {
     }
 
     public function getMoods($term = '') {
-        if(model('user')->isLoggedIn()){
+        $sql = "SELECT * FROM mood  ";
+        $param = array();
+        if ($term) {
+            $term = '%'.$term.'%';
+            $sql .= "WHERE name LIKE ? ";
+            $param[] = $term;
+
+        }
+        $query = $this->db->query($sql, $param);
+
+        /*if(model('user')->isLoggedIn()){
             $time = config('chart-top-time', 'this-week');
             $time = get_time_relative_format($time);
             $currentTime = time();
@@ -90,6 +100,8 @@ class AdminModel extends Model {
         }
         $query = $this->db->query($sql, $param);
         //var_dump($sql);
+        return $query->fetchAll(PDO::FETCH_ASSOC);*/
+        
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
