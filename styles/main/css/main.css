@@ -460,6 +460,7 @@ input.cmn-toggle-round-flat:checked + label:after {
 }
 .each-notification .media-heading {
     font-size: 13px;
+    color: gray;
 }
 .unread, .each-notification:hover {
     background: #FFF4F1;
@@ -3479,6 +3480,10 @@ b{
 }
 .each-chat .timeago{
     font-size: 9px;
+}
+
+.dark-mode .timeago{
+    color: grey;
 }
 .chat-embed {
     width: 100% !important;
