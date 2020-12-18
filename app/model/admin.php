@@ -89,7 +89,7 @@ class AdminModel extends Model {
             }
             $query = $this->db->query($sql, $param);
         }
-        
+        var_dump($sql);
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
