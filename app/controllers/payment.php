@@ -480,7 +480,7 @@ class PaymentController extends Controller {
 
         $url = ($type == 'pro' or $type == 'pro-users') ? url('settings/pro') : url();
         $url = Hook::getInstance()->fire('payment.success.url', $url, array($type, $typeId));
-            var_dump($ligne_response);die;
+        
         if ($ligne_response->STATUT == 200) {
             $this->model('admin')->addTransaction(array(
                 'amount' =>  $price,
