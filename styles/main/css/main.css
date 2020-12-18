@@ -3355,6 +3355,7 @@ b{
     border-bottom: solid 2px #E9ECEF;
     padding: 20px 20px ;
     position: relative;
+    background-color: #f9fafb;
 }
 .messages-container .left .head .new {
     position: absolute;
@@ -3396,6 +3397,7 @@ b{
     position: relative;
     height: 87.5%;
     overflow: auto;
+    background-color: #f9fafb;
 }
 .conversations .each{
     padding: 10px 20px;
