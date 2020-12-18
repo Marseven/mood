@@ -133,7 +133,7 @@ label{
 
 .dark-mode .btn-outline-secondary {
     border-color: #F1F1F1;
-    background: #7451eb;
+    background: #000000;
 }
 
 .btn-primary:hover, .btn-primary:active{
@@ -2276,6 +2276,7 @@ input.cmn-toggle-round-flat:checked + label:after {
 }
 #top-artist-slider .list .art {
     position: relative !important;
+    margin-left: 26px;
     width: 130px;
     height:130px;
     border-radius:100px
