@@ -3,10 +3,16 @@ return array(
     /**
      * Provide your MYSQL database credentials
      */
-    'db_host' => 'localhost',
+    /*'db_host' => 'localhost',
     'db_username' => 'u920727527_mood',
     'db_name' => 'u920727527_mood',
     'db_password' => 'Mood@27478433',
+    'dbcharacter_encode' => true,*/
+
+    'db_host' => 'localhost',
+    'db_username' => 'root',
+    'db_name' => 'mood',
+    'db_password' => '',
     'dbcharacter_encode' => true,
 
     /**

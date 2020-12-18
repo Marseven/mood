@@ -64,15 +64,32 @@ class AdminModel extends Model {
     }
 
     public function getMoods($term = '') {
-        $sql = "SELECT * FROM mood  ";
-        $param = array();
-        if ($term) {
-            $term = '%'.$term.'%';
-            $sql .= "WHERE name LIKE ? ";
-            $param[] = $term;
+        if(model('user')->isLoggedIn()){
+            $time = config('chart-top-time', 'this-week');
+            $time = get_time_relative_format($time);
+            $currentTime = time();
+            $blockedIds = $this->C->model('user')->blockIds();
+            $expiredArtists = $this->C->model('track')->getExpiredArtists();
+            $userid = $this->C->model('user')->authId;
+            $sql = "SELECT *,(SELECT count(track) FROM views WHERE views.userid=$userid AND views.track=tracks.id AND views.time BETWEEN $time AND $currentTime ) as count FROM tracks WHERE tracks.status=? AND userid NOT IN ($expiredArtists)  AND  userid NOT IN ($blockedIds)   AND (tracks.public != ? AND tracks.public != ?)  AND approved=?";
+            $param = array(1, 3,2,1);
+            if ($term != 'all') {
+                $param[] = $term;
+                $sql .= ' AND mood=? ';
+            }
+            $sql .= " ORDER BY count DESC";
+        }else{
+            $sql = "SELECT * FROM mood  ";
+            $param = array();
+            if ($term) {
+                $term = '%'.$term.'%';
+                $sql .= "WHERE name LIKE ? ";
+                $param[] = $term;
 
+            }
+            $query = $this->db->query($sql, $param);
         }
-        $query = $this->db->query($sql, $param);
+        
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
