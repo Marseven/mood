@@ -17,7 +17,7 @@
                 </div>
                 <div class="right float-right">
                     <ul class="float-left">
-                        <?php if(!config('enable-premium-listeners', false) or !$C->model('user')->isLoggedIn()):?>
+                        <?php if(!config('enable-premium-listeners', false) && $C->model('user')->isLoggedIn()):?>
                             <?php if($C->model('user')->canUpload()):?>
                                 <?php if(config('enable-premium', false) and  (!$C->model('user')->isLoggedIn() or !$C->model('user')->subscriptionActive())):?>
                                     <li class="hide-mobile"><a href="<?php echo url('pro')?>" data-ajax="true" class="btn btn-sm btn-primary"><?php _l('go-pro')?></a></li>
