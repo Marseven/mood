@@ -257,7 +257,7 @@ Hook::getInstance()->register('track.edit.content', function($track) {
 Hook::getInstance()->register('track.edit', function($track, $val) {
     if (isset($val['price'])) {
         $price = convertBackToBase($val['price']);
-        Database::getInstance()->query("UPDATE tracks SET price=? WHERE id=?", $price, $track['id']);
+        if($price > 0) Database::getInstance()->query("UPDATE tracks SET price=? WHERE id=?", $price, $track['id']);
     }
 });
 Hook::getInstance()->register('playlist.edit.content', function($playlist) {

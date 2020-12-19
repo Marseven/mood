@@ -52,12 +52,13 @@ class TrackModel extends Model {
 
     public function displayItem($track, $allowOwner = false) {
         if (!config('disable-tracks', true) or !config('enable-premium', false)) return true;
-        /*if(model('user')) $result = model('user')->lastTransactionExpired($track['userid']);
+
+        $result = model('user')->lastTransactionExpired($track['userid']);
         if (!$result) return true;
         if ($result == 'expired') {
             if ($allowOwner and $track['userid'] == model('user')->authId) return true;
             //return false;
-        }*/
+        }
         return true;
     }
 
@@ -1368,5 +1369,28 @@ class TrackModel extends Model {
     public function getRandomTrackArtByMood($mood) {
         $query = $this->db->query("SELECT * FROM tracks WHERE mood=? AND art !='' ORDER BY rand() LIMIT 1", $mood);
         return $query->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getTrackMoodByUser($moodId){
+        if(model('user')->isLoggedIn()){
+            $time = config('chart-top-time', 'this-week');
+            $time = get_time_relative_format($time);
+            $currentTime = time();
+            $blockedIds = $this->C->model('user')->blockIds();
+            $expiredArtists = $this->C->model('track')->getExpiredArtists();
+            $userid = $this->C->model('user')->authId;
+            $sql = "SELECT *,(SELECT count(track) FROM views WHERE views.userid=$userid AND views.track=tracks.id AND views.time BETWEEN $time AND $currentTime ) as count FROM tracks WHERE tracks.status=? AND userid NOT IN ($expiredArtists)  AND  userid NOT IN ($blockedIds)   AND (tracks.public != ? AND tracks.public != ?)  AND approved=? AND mood=? ORDER BY count DESC";
+            $param = array(1, 3,2,1,$moodId);
+        }else{
+            $time = config('chart-top-time', 'this-week');
+            $time = get_time_relative_format($time);
+            $currentTime = time();
+            $blockedIds = $this->C->model('user')->blockIds();
+            $expiredArtists = $this->C->model('track')->getExpiredArtists();
+            $sql = "SELECT *,(SELECT count(track) FROM views WHERE views.track=tracks.id AND views.time BETWEEN $time AND $currentTime ) as count FROM tracks WHERE tracks.status=? AND userid NOT IN ($expiredArtists)  AND  userid NOT IN ($blockedIds)   AND (tracks.public != ? AND tracks.public != ?)  AND approved=? AND mood=? ORDER BY count DESC";
+            $param = array(1, 3,2,1,$moodId);
+        }
+        $query = $this->db->query($sql, $param);
+        return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 }

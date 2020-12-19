@@ -1,6 +1,11 @@
 <?php if(count($tracks) > 0):?>
 
-    <?php $i = $offset;  foreach ($tracks as $track):?>
+    <?php $i = $offset;  
+        if($type == 'mood'){
+            $tracks = $C->model('track')->getTrackMoodByUser($typeId);
+        }
+        
+    foreach ($tracks as $track):?>
         <?php
         $listTracks = array();
         ?>
