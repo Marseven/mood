@@ -95,7 +95,7 @@ class VideoController extends Controller {
                         }
                         $uploader->setPath("videos/".$this->model('user')->authId.'/'.date('Y').'/');
                         if ($uploader->passed()) {
-                            include_once(path('app/vendor/getid3/getid3.php'));
+                            include_once(path('app/vendor/james-heinrich/getid3/getid3/getid3.php'));
                             $tmpMove = $uploader->uploadFile()->result();
                             $getID3 = new getID3;
                             $ThisFileInfo = $getID3->analyze(path($tmpMove));
