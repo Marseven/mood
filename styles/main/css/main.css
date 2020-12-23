@@ -2445,11 +2445,11 @@ b{
     display: inline-block;
     padding: 10px 0;
 }
-.content-cover{
+.content-hover{
     margin-top: 80px;
 }
 
-.content-cover h3{
+.content-hover h3{
     color: #fff;
 }
 .topography .topo-header  ul li a{
