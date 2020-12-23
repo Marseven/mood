@@ -3,7 +3,7 @@
     <?php if($C->model('user')->isLoggedIn()):?>
         <li><a id="feed-menu" class="sub-menu <?php echo ( $C->activeMenu == 'feed') ? 'active' : null?> " href="<?php echo url('')?>"  data-ajax="true"><i class="la la-home "></i> <span><?php _l('home')?></span></a></li>
     <?php endif?>
-    <li><a id="discover-menu" class="sub-menu  <?php echo ( $C->activeMenu == 'discover') ? 'active' : null?> " href="<?php echo url('discover')?>"  data-ajax="true"> <i class="la la-compass  "></i><span><?php _l('browse')?></span></a></li>
+    <li><a id="discover-menu" class="sub-menu  <?php echo ( $C->activeMenu == 'discover') ? 'active' : null?> " href="<?php echo url('discover')?>"  data-ajax="true"> <i class="la la-compass  "></i><span><?php _l('biblio')?></span></a></li>
 
     <li><a id="charts-menu" class="sub-menu  <?php echo ( $C->activeMenu == 'charts') ? 'active' : null?> " href="<?php echo url('charts')?>"  data-ajax="true"><i class="la la-bar-chart "></i> <span><?php _l('charts')?></span></a></li>
 

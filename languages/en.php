@@ -1182,5 +1182,6 @@ return array(
     "pvit" => "Pvit",
     "airtel-money" => "Airtel Money",
     "mobicash" => "Mobicash",
+    "biblio" => "Library",
 
 );

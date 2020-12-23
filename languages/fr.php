@@ -907,7 +907,7 @@ return array(
     "videos-sold" => "Vidéos vendues",
     "categories" => "Les catégories",
     "no-videos-display" => "Aucune vidéo à afficher",
-    "watch-history" => "Regarder l'historique",
+    "watch-history" => "Historique de Visionnage",
     "watch-later" => "Regarder plus tard",
     "add-to-watch-later" => "Ajouter à Lire plus tard",
     "remove-from-watch-later" => "Supprimer de Watch plus tard",
@@ -1157,4 +1157,5 @@ return array(
     "pvit" => "Pvit",
     "airtel-money" => "Airtel Money",
     "mobicash" => "Mobicash",
+    "biblio" => "Bibliothèque",
 );
