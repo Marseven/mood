@@ -60,13 +60,23 @@
 
                     <div class="row">
                         <div class="col-sm-8">
-                            <div class="">
+                            <div class="content-hover">
                                 <h1><?php _l('find-the-music')?> <?php _l('you-love')?>. </h1>
-                                <h4 class=""><?php _l('discover-new-tracks-title')?></h4>
+                                <br>
+                                <h3 class=""><?php _l('discover-new-tracks-title')?></h3>
+                                <?php if(!config('separate-login', 0)):?>
+                                    <?php if(config('user-signup', true)):?>
+                                        <a href="#" onclick="return changeAuthModal('.signup-form')" class="btn btn-white-bg" style="background-color: #003668; color:#fff;"><?php _l('join-us')?></a>
+                                    <?php endif?>
+                                <?php else:?> 
+                                    <?php if(config('user-signup', true)):?>
+                                        <a href="<?php echo url('signup')?>"  class="btn btn-white-bg" style="background-color: #003668; color:#fff;"><?php _l('join-us')?></a>
+                                    <?php endif?>
+                                <?php endif?>
                             </div>
                         </div>
                         <div class="col-sm-4">
-                            <img src="<?php echo assetUrl('assets/images/or.jpg')?>" />
+                            <img src="<?php echo assetUrl('assets/images/or.jpg')?>" style="width: 120%;"/>
                         </div>
                     </div>
                 </div>

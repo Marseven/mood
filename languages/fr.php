@@ -1158,4 +1158,5 @@ return array(
     "airtel-money" => "Airtel Money",
     "mobicash" => "Mobicash",
     "biblio" => "Bibliothèque",
+    "join-us" => "Profitez de votre musique",
 );

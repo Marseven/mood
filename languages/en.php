@@ -1183,5 +1183,6 @@ return array(
     "airtel-money" => "Airtel Money",
     "mobicash" => "Mobicash",
     "biblio" => "Library",
+    "join-us" => "Enjouy your music",
 
 );
