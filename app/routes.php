@@ -81,9 +81,9 @@ $request->any('upload/track/wave', array('uses' => 'track@uploadWave'));
 $request->any('upload/track/picture', array('uses' => 'track@uploadPicture'));
 $request->any('load/track/player/buttons', array('uses' => 'track@loadPlayerButtons', 'secure' => true));
 $request->any('track/play/{id}/{hash}', array('uses' => 'track@play', 'secure' => true))->where(array('id' => '[a-zA-Z0-9\_\-]+', 'hash' => '[a-zA-Z0-9\_\-]+'));
-$request->any('track/load', array('uses' => 'track@load', 'secure' => true));
+$request->any('track/load', array('uses' => 'track@load', 'secure' => false));
 $request->any('player/load', array('uses' => 'track@playerLoad', 'secure' => true));
-$request->any('track/paginate', array('uses' => 'track@paginate', 'secure' => true));
+$request->any('track/paginate', array('uses' => 'track@paginate', 'secure' => false));
 $request->any('track/download', array('uses' => 'track@downloadTrack', 'secure' => true));
 $request->any('track/add/download', array('uses' => 'track@download', 'secure' => true));
 $request->any('track/delete', array('uses' => 'track@deleteTrack'));
@@ -130,7 +130,7 @@ $request->any('save/theme/mode', array('uses' => 'home@saveThemeMode', 'secure' 
 
 $request->any('clear/history', array('uses' => 'home@clearHistory'));
 
-$request->any('playlist/paginate', array('uses' => 'track@playlistPaginate', 'secure' => true));
+$request->any('playlist/paginate', array('uses' => 'track@playlistPaginate', 'secure' => false));
 
 $request->any('artists/paginate', array('uses' => 'user@paginateArtists', 'secure' => true));
 
