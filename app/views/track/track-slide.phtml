@@ -6,24 +6,20 @@ $typeId = (isset($typeId)) ? $typeId : '';
 <div class="swiper-slide">
     <div class="list each-track-<?php echo $track['id']?> track-<?php echo $track['id']?>" id="track-<?php echo $track['id']?>">
         <div class="art round-sm" style="background-image: url(<?php echo $C->model('track')->getArt($track,600)?>);">
-            <a href=""
-                    data-id="<?php echo $track['id']?>"
-                    data-art="<?php echo $C->model('track')->getArt($track)?>"
-                    data-title="<?php echo format_output_text(str_limit( $track['title'], 50))?>"
-                    data-link="<?php echo url('track/'.$track['id'])?>"
-                    data-owner="<?php echo $user['full_name']?>"
-                    data-owner-link="<?php echo $C->model('user')->profileUrl($user)?>"
-                    data-wave="<?php echo (config('player-progress-type','bar') != 'bar') ? $track['wave'] : '' ?>"
-                    data-type="<?php echo $type?>"
-                    data-typeid="<?php echo $typeId?>"
-                    data-wave-colored="<?php echo (config('player-progress-type','bar') != 'bar') ? $track['wave_colored'] : '' ?>"
-                    class="play-button track-play-button track-play-button-<?php echo $track['id']?>" id="track-play-button-<?php echo $track['id']?>" >
-                <div class="track-hover-display">
-
-                    <div class="play-controls" data-wave="">
-                    </div>
-                </div>
-            </a>
+            <div class="track-hover-display">
+                <a href=""
+                   data-id="<?php echo $track['id']?>"
+                   data-art="<?php echo $C->model('track')->getArt($track)?>"
+                   data-title="<?php echo format_output_text(str_limit( $track['title'], 50))?>"
+                   data-link="<?php echo url('track/'.$track['id'])?>"
+                   data-owner="<?php echo $user['full_name']?>"
+                   data-owner-link="<?php echo $C->model('user')->profileUrl($user)?>"
+                   data-wave="<?php echo (config('player-progress-type','bar') != 'bar') ? $track['wave'] : '' ?>"
+                   data-type="<?php echo $type?>"
+                   data-typeid="<?php echo $typeId?>"
+                   data-wave-colored="<?php echo (config('player-progress-type','bar') != 'bar') ? $track['wave_colored'] : '' ?>"
+                   class="play-button track-play-button track-play-button-<?php echo $track['id']?>" id="track-play-button-<?php echo $track['id']?>" ></a>
+            </div>
             <?php Hook::getInstance()->fire('track.slide.art', null, array($track))?>
         </div>
 
