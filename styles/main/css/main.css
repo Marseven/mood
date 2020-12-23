@@ -3420,7 +3420,7 @@ b{
     font-weight: 600;
 }
 .conversations .each .text{
-    color: white;
+    color: grey;
 }
 .conversations .active {
     background-color: #F9FAFB;
@@ -5664,6 +5664,11 @@ b{
     background: #1A1A1A;
     box-shadow: 0 4px 9px #3E3E3E;
 }
+
+.dark-mode .grid-container .grid .grid-title-container a {
+    color: #000;
+}
+
 .each-drag {
     padding: 10px;
     border: solid 1px #D5D5D5;
