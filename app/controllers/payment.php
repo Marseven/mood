@@ -481,20 +481,20 @@ class PaymentController extends Controller {
         $url = ($type == 'pro' or $type == 'pro-users') ? url('settings/pro') : url();
         $url = Hook::getInstance()->fire('payment.success.url', $url, array($type, $typeId));
 
-        var_dump($typeId);
+        /*var_dump($typeId);
         var_dump($type);
         var_dump($price);
-        die;
+        die;*/
         
-        if ($statut_received == 200) {
+        if ($price != 0) {
             $this->model('admin')->addTransaction(array(
                 'amount' =>  $price,
                 'type' => $type,
                 'type_id' => $typeId,
-                'sale_id' => $ligne_response->TOKEN,
+                'sale_id' => 0001,
                 'name' => $this->model('user')->authUser['full_name'],
                 'country' => $this->model('user')->authUser['country'],
-                'telephone' => $client_received,
+                'telephone' => '074228306',
                 'userid' => $this->model('user')->authId
             ));
             Hook::getInstance()->fire('payment.success', null, array($type, $typeId));
