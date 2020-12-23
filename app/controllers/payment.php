@@ -465,10 +465,10 @@ class PaymentController extends Controller {
         $typeId = $this->request->input('typeid');
         $price = $this->request->input('price');
        
-        //$data_received=file_get_contents("php://input"); 
-        //$data_received_xml=new SimpleXMLElement($data_received); 
-        //$ligne_response=$data_received_xml[0]; 
-        /*$interface_received=$ligne_response->INTERFACEID; 
+        $data_received=file_get_contents("php://input"); 
+        $data_received_xml=new SimpleXMLElement($data_received); 
+        $ligne_response=$data_received_xml[0]; 
+        $interface_received=$ligne_response->INTERFACEID; 
         $reference_received=$ligne_response->REF; 
         $type_received=$ligne_response->TYPE; 
         $statut_received=$ligne_response->STATUT; 
@@ -476,25 +476,21 @@ class PaymentController extends Controller {
         $client_received=$ligne_response->TEL_CLIENT; 
         $message_received=$ligne_response->MESSAGE; 
         $token_received=$ligne_response->TOKEN; 
-        $agent_received=$ligne_response->AGENT;*/
+        $agent_received=$ligne_response->AGENT;
 
         $url = ($type == 'pro' or $type == 'pro-users') ? url('settings/pro') : url();
         $url = Hook::getInstance()->fire('payment.success.url', $url, array($type, $typeId));
-
-        /*var_dump($typeId);
-        var_dump($type);
-        var_dump($price);
-        die;*/
-        
-        if ($price != 0) {
+        var_dump($this->model('user')->authUser);die;
+        if ($statut_received == 200) {
             $this->model('admin')->addTransaction(array(
                 'amount' =>  $price,
                 'type' => $type,
                 'type_id' => $typeId,
-                'sale_id' => 0001,
+                'sale_id' => $token_received,
                 'name' => $this->model('user')->authUser['full_name'],
+                'email' => $this->model('user')->authUser['email'],
                 'country' => $this->model('user')->authUser['country'],
-                'telephone' => '074228306',
+                'telephone' => $client_received,
                 'userid' => $this->model('user')->authId
             ));
             Hook::getInstance()->fire('payment.success', null, array($type, $typeId));
