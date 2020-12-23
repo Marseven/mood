@@ -2926,8 +2926,8 @@ b{
 .grid-container .grid .grid-title-container {
     padding: 10px 10px;
 }
-.dark-mode .grid-container .grid .grid-title-container a, dark-mode .grid-container .grid .grid-title-container span{
-    color: #fff;
+.dark-mode .grid-container .grid .grid-title-container span{
+    color: grey;
 }
 .grid-container .grid .grid-title-container .grid-info{
     color: #7451eb;
@@ -5681,7 +5681,7 @@ b{
 }
 
 .dark-mode .grid-container .grid .grid-title-container a {
-    color: #000;
+    color: grey;
 }
 
 .each-drag {
