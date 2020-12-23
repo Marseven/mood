@@ -12,18 +12,18 @@
                 <div class="float-right">
                     <ul>
                         <?php if(config('separate-login', 0)):?>
-                            <li><a   href="<?php echo url('login')?>" class="">
+                            <li><a   href="<?php echo url('login')?>" class="" style="color:#fff;">
                                     <span class="hide-mobile-sm"><?php _l('sign-in')?></span>
                                     <i class="show-mobile-sm la la-lock " style="position:relative;bottom: 5px;display: none;"></i>
                                 </a></li>
-                            <li class="hide-mobile-sm"><a    href="<?php echo url('signup')?>" class=""><?php _l('create-account')?></a></li>
+                            <li class="hide-mobile-sm"><a    href="<?php echo url('signup')?>" class="" style="color:#fff;"><?php _l('create-account')?></a></li>
 
                         <?php else:?>
-                            <li><a  onclick="return changeAuthModal('.login-form')"   href="" class="">
+                            <li><a  onclick="return changeAuthModal('.login-form')"   href="" class="" style="color:#fff;">
                                     <span class="hide-mobile-sm"><?php _l('sign-in')?></span>
                                     <i class="show-mobile-sm la la-lock " style="position:relative;bottom: 5px;display: none;"></i>
                                 </a></li>
-                            <li class="hide-mobile-sm"><a  onclick="return changeAuthModal('.signup-form')"   href="" class=""><?php _l('create-account')?></a></li>
+                            <li class="hide-mobile-sm"><a  onclick="return changeAuthModal('.signup-form')"   href="" class="" style="color:#fff;"><?php _l('create-account')?></a></li>
 
                         <?php endif?>
                         <li><a href="" title="<?php _l('change-theme-mode')?>" onclick="return change_theme_mode('<?php echo getThemeMode()?>')" class="theme-mode-button mtitle"><i class="la la-lightbulb-o"></i></a> </li>
@@ -60,13 +60,13 @@
 
                     <div class="row">
                         <div class="col-sm-8">
-                            <div class="mt-5">
+                            <div class="">
                                 <h1><?php _l('find-the-music')?> <?php _l('you-love')?>. </h1>
-                                <h4 class="mt-4"><?php _l('discover-new-tracks-title')?></h4>
+                                <h4 class=""><?php _l('discover-new-tracks-title')?></h4>
                             </div>
                         </div>
                         <div class="col-sm-4">
-                        
+                            <img src="" />
                         </div>
                     </div>
                 </div>

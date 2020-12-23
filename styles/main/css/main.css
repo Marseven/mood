@@ -2398,8 +2398,8 @@ b{
     height: 650px;
     position: relative;
     background-color: #EDF6F5;
-    background-image: linear-gradient(90deg, #7451eb 0%, rgba(249,2,81,1) 55%, rgba(253,43,109,1) 100%);
-    background-image: url(../images/topo.jpg);
+    background-image: linear-gradient(90deg, #7451eb 0%,rgba(76, 2, 249, 0.945) 55%, rgb(8, 20, 126) 100%);
+    /*background-image: url(../images/topo.jpg);*/
     background-position: center;
     -webkit-background-size: cover;
     background-size: cover;
@@ -2411,7 +2411,7 @@ b{
     left: 0;
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(90deg, #7451eb 0%, rgba(249,2,81,0.3) 55%, rgba(253,43,109,0.7) 100%);
+    background-image: linear-gradient(90deg, #7451eb 0%, rgba(76, 2, 249, 0.945) 55%, rgb(8, 20, 126) 100%);
 }
 .topography:after {
     position: absolute;
