@@ -2226,15 +2226,22 @@ input.cmn-toggle-round-flat:checked + label:after {
     z-index: 99;
 }
 .horizontal-list .slider .list .art .play-icon {
-    width:45px;
-    height:45px;
-    border: solid 2px #7451eb;
+    width: 25px;
+    height: 25px;
+    border: solid 1px #7451eb;
     border-radius: 100px;
-    color:  #7451eb;
-    background: #ffffff;
+    margin-right: 15px;
     display: block;
     text-align: center;
-    font-size: 25px;
+    font-size: 15px;
+    padding-top: 1px;
+    padding-left: 5px;
+    color: #7451eb;
+    background: #2b2a2a7d;
+    left: 5%;
+    position: absolute;
+    top: 5%;
+    z-index: 99;
 }
 .horizontal-list .slider .list .art .play-icon i{
     margin-top: 10px;
