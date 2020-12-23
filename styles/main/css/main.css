@@ -2551,6 +2551,18 @@ b{
         width: 29% !important;
         height:170px !important;
     }
+
+    .content-hover{
+        margin-top: 10px;
+    }
+
+    .topography .topo-hero img {
+        display: none;
+    }
+
+    .topography .topo-hero h3 {
+        font-size: 20px;
+    }
 }
 @media (max-width:450px) {
     .align-right-to-center {
