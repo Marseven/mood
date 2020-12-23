@@ -3399,6 +3399,11 @@ b{
     overflow: auto;
     background-color: #f9fafb;
 }
+
+.dark-mode .conversations {
+    background-color: #1a1a1a;
+}
+
 .conversations .each{
     padding: 10px 20px;
     border-bottom: solid 1px #F9FAFB;
