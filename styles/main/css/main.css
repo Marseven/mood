@@ -2215,7 +2215,7 @@ input.cmn-toggle-round-flat:checked + label:after {
     margin-right: 15px;
     display: block;
     text-align: center;
-    font-size: 25px;
+    font-size: 15px;
     padding-top: 1px;
     padding-left: 5px;
     color: #7451eb;
