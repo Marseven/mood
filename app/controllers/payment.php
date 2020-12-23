@@ -465,10 +465,10 @@ class PaymentController extends Controller {
         $typeId = $this->request->input('typeid');
         $price = $this->request->input('price');
        
-        $data_received=file_get_contents("php://input"); 
-        $data_received_xml=new SimpleXMLElement($data_received); 
-        $ligne_response=$data_received_xml[0]; 
-        $interface_received=$ligne_response->INTERFACEID; 
+        //$data_received=file_get_contents("php://input"); 
+        //$data_received_xml=new SimpleXMLElement($data_received); 
+        //$ligne_response=$data_received_xml[0]; 
+        /*$interface_received=$ligne_response->INTERFACEID; 
         $reference_received=$ligne_response->REF; 
         $type_received=$ligne_response->TYPE; 
         $statut_received=$ligne_response->STATUT; 
@@ -476,12 +476,12 @@ class PaymentController extends Controller {
         $client_received=$ligne_response->TEL_CLIENT; 
         $message_received=$ligne_response->MESSAGE; 
         $token_received=$ligne_response->TOKEN; 
-        $agent_received=$ligne_response->AGENT;
+        $agent_received=$ligne_response->AGENT;*/
 
         $url = ($type == 'pro' or $type == 'pro-users') ? url('settings/pro') : url();
         $url = Hook::getInstance()->fire('payment.success.url', $url, array($type, $typeId));
 
-        var_dump($ligne_response);
+        //var_dump($ligne_response);
         var_dump($url);
         die;
         
