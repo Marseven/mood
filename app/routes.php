@@ -45,8 +45,8 @@ $request->any('welcome/load', array('uses' => 'home@welcomeLoad'));
 $request->any('welcome/finish', array('uses' => 'home@welcomeFinish'));
 
 
-$request->any('search', array('uses' => 'home@search', 'secure' => true));
-$request->any('search/dropdown', array('uses' => 'home@searchDropdown', 'secure' => true));
+$request->any('search', array('uses' => 'home@search', 'secure' => false));
+$request->any('search/dropdown', array('uses' => 'home@searchDropdown', 'secure' => false));
 
 $request->any('sitemap', array('uses' => 'home@sitemap', 'secure' => false));
 
@@ -60,21 +60,21 @@ $request->any('notifications', array('uses' => 'user@notifications'));
 $request->any('notification/paginate', array('uses' => 'user@notificationPaginate'));
 $request->any('check/notification', array('uses' => 'user@checkNotification'));
 
-$request->any('charts', array('uses' => 'home@charts', 'secure' => true));
-$request->any('moods', array('uses' => 'home@moods', 'secure' => true));
-$request->any('charts/trending', array('uses' => 'home@charts', 'secure' => true));
-$request->any('charts/top', array('uses' => 'home@charts', 'secure' => true));
-$request->any('discover', array('uses' => 'home@discover', 'secure' => true));
-$request->any('discover/latest', array('uses' => 'home@discover', 'secure' => true));
-$request->any('discover/artists', array('uses' => 'home@discover', 'secure' => true));
-$request->any('discover/albums', array('uses' => 'home@discover', 'secure' => true));
-$request->any('discover/playlists', array('uses' => 'home@discover', 'secure' => true));
-$request->any('discover/genre/{id}', array('uses' => 'home@discover', 'secure' => true))->where(array('id' => '[a-zA-Z0-9\_\-]+'));
-$request->any('discover/mood/{id}', array('uses' => 'home@discover', 'secure' => true))->where(array('id' => '[a-zA-Z0-9\_\-]+'));
+$request->any('charts', array('uses' => 'home@charts', 'secure' => false));
+$request->any('moods', array('uses' => 'home@moods', 'secure' => false));
+$request->any('charts/trending', array('uses' => 'home@charts', 'secure' => false));
+$request->any('charts/top', array('uses' => 'home@charts', 'secure' => false));
+$request->any('discover', array('uses' => 'home@discover', 'secure' => false));
+$request->any('discover/latest', array('uses' => 'home@discover', 'secure' => false));
+$request->any('discover/artists', array('uses' => 'home@discover', 'secure' => false));
+$request->any('discover/albums', array('uses' => 'home@discover', 'secure' => false));
+$request->any('discover/playlists', array('uses' => 'home@discover', 'secure' => false));
+$request->any('discover/genre/{id}', array('uses' => 'home@discover', 'secure' => false))->where(array('id' => '[a-zA-Z0-9\_\-]+'));
+$request->any('discover/mood/{id}', array('uses' => 'home@discover', 'secure' => false))->where(array('id' => '[a-zA-Z0-9\_\-]+'));
 $request->any('upload', array('uses' => 'home@upload'));
 $request->any('search/tags', array('uses' => 'home@searchTags'));
 
-$request->any('page/{id}', array('uses' => 'home@page', 'secure' => true))->where(array('id' => '[a-zA-Z0-9\_\-]+'));
+$request->any('page/{id}', array('uses' => 'home@page', 'secure' => false))->where(array('id' => '[a-zA-Z0-9\_\-]+'));
 
 $request->any('upload/track', array('uses' => 'track@upload'));
 $request->any('upload/track/wave', array('uses' => 'track@uploadWave'));
@@ -90,8 +90,8 @@ $request->any('track/delete', array('uses' => 'track@deleteTrack'));
 $request->any('playlist/delete', array('uses' => 'track@deletePlaylist'));
 $request->any('track/add/later', array('uses' => 'track@addLater'));
 $request->any('track/remove/later', array('uses' => 'track@removeLater'));
-$request->any('track/set/views', array('uses' => 'track@setViews','secure' => true));
-$request->any('track/people/paginate', array('uses' => 'track@paginatePeople', 'secure' => true));
+$request->any('track/set/views', array('uses' => 'track@setViews','secure' => false));
+$request->any('track/people/paginate', array('uses' => 'track@paginatePeople', 'secure' => false));
 $request->any('playlist/load', array('uses' => 'track@playlist'));
 $request->any('track/tags', array('uses' => 'track@trackAsTags'));
 $request->any('track/track-tags', array('uses' => 'track@trackAsTags'));
@@ -102,19 +102,19 @@ $request->any('download/album', array('uses' => 'track@downloadAlbum'));
 
 
 $request->any('playlist/add/track', array('uses' => 'track@addPlaylistTrack'));
-$request->any('track/{slug}', array('uses' => 'track@profile', 'secure' => true))->where(array('slug' => '[a-zA-Z0-9\_\-]+'));
-$request->any('track/{slug}/{other}', array('uses' => 'track@profile', 'secure' => true))->where(array('slug' => '[a-zA-Z0-9\_\-]+', 'other' => '[a-zA-Z0-9\_\-]+'));
+$request->any('track/{slug}', array('uses' => 'track@profile', 'secure' => false))->where(array('slug' => '[a-zA-Z0-9\_\-]+'));
+$request->any('track/{slug}/{other}', array('uses' => 'track@profile', 'secure' => false))->where(array('slug' => '[a-zA-Z0-9\_\-]+', 'other' => '[a-zA-Z0-9\_\-]+'));
 
 
 $request->any('comment/add', array('uses' => 'track@addComment'));
-$request->any('comment/time/load', array('uses' => 'track@commentTimeLoad', 'secure' => true));
+$request->any('comment/time/load', array('uses' => 'track@commentTimeLoad', 'secure' => false));
 $request->any('comment/delete', array('uses' => 'track@deleteComment'));
-$request->any('comment/load', array('uses' => 'track@loadComment', 'secure' => true));
-$request->any('comment/paginate', array('uses' => 'track@paginateComment', 'secure' => true));
+$request->any('comment/load', array('uses' => 'track@loadComment', 'secure' => false));
+$request->any('comment/paginate', array('uses' => 'track@paginateComment', 'secure' => false));
 
 $request->any('report/comment', array('uses' => 'track@reportComment'));
 $request->any('report/track', array('uses' => 'track@reportTrack'));
-$request->any('tr/a/{id}/details', array('uses' => 'track@trackDetail', 'secure' => true))->where(array('id' => '[0-9]+'));
+$request->any('tr/a/{id}/details', array('uses' => 'track@trackDetail', 'secure' => false))->where(array('id' => '[0-9]+'));
 
 $request->any('like/item', array('uses' => 'track@likeItem'));
 $request->any('repost/item', array('uses' => 'track@repostItem'));
@@ -126,13 +126,13 @@ $request->any('collection/history', array('uses' => 'home@collection'));
 $request->any('collection/playlists', array('uses' => 'home@collection'));
 $request->any('collection/albums', array('uses' => 'home@collection'));
 
-$request->any('save/theme/mode', array('uses' => 'home@saveThemeMode', 'secure' => true));
+$request->any('save/theme/mode', array('uses' => 'home@saveThemeMode', 'secure' => false));
 
 $request->any('clear/history', array('uses' => 'home@clearHistory'));
 
-$request->any('playlist/paginate', array('uses' => 'track@playlistPaginate', 'secure' => true));
+$request->any('playlist/paginate', array('uses' => 'track@playlistPaginate', 'secure' => false));
 
-$request->any('artists/paginate', array('uses' => 'user@paginateArtists', 'secure' => true));
+$request->any('artists/paginate', array('uses' => 'user@paginateArtists', 'secure' => false));
 
 $request->any('settings', array('uses' => 'user@settings'));
 $request->any('two/factor/auth', array('uses' => 'user@twoFactor', 'secure' => false));
@@ -146,8 +146,8 @@ $request->any('cronjob/run', array('uses' => 'cron@run', 'secure' => false));
 $request->any('change/language', array('uses' => 'home@changeLanguage', 'secure' => false));
 
 
-$request->any('set/{slug}', array('uses' => 'track@setProfile', 'secure' => true))->where(array('slug' => '[a-zA-Z0-9\_\-]+'));
-$request->any('set/{slug}/{other}', array('uses' => 'track@setProfile', 'secure' => true))->where(array('slug' => '[a-zA-Z0-9\_\-]+', 'other' => '[a-zA-Z0-9\_\-]+'));
+$request->any('set/{slug}', array('uses' => 'track@setProfile', 'secure' => false))->where(array('slug' => '[a-zA-Z0-9\_\-]+'));
+$request->any('set/{slug}/{other}', array('uses' => 'track@setProfile', 'secure' => false))->where(array('slug' => '[a-zA-Z0-9\_\-]+', 'other' => '[a-zA-Z0-9\_\-]+'));
 
 
 $request->any('follow', array('uses' => 'user@follow'));
@@ -228,8 +228,8 @@ $request->any('api/{key}/upload/picture', array('uses' => 'api@uploadPicture', '
 $request->any('api/{key}/setup', array('uses' => 'api@setup', 'secure' => false))->where(array('key' => '[a-zA-Z0-9\_\-]+'));
 $request->any('api/{key}/activate/pro', array('uses' => 'api@activatePro', 'secure' => false))->where(array('key' => '[a-zA-Z0-9\_\-]+'));
 
-$request->any('embed/track/{id}', array('uses' => 'home@embedCode', 'secure' => true))->where(array('id' => '[a-zA-Z0-9\_\-]+'));
-$request->any('embed/playlist/{id}', array('uses' => 'home@embedCode', 'secure' => true))->where(array('id' => '[a-zA-Z0-9\_\-]+'));
+$request->any('embed/track/{id}', array('uses' => 'home@embedCode', 'secure' => false))->where(array('id' => '[a-zA-Z0-9\_\-]+'));
+$request->any('embed/playlist/{id}', array('uses' => 'home@embedCode', 'secure' => false))->where(array('id' => '[a-zA-Z0-9\_\-]+'));
 
-$request->any('{id}', array('uses' => 'user@profile', 'secure' => true))->where(array('id' => '[a-zA-Z0-9\_\-]+'));
-$request->any('{id}/{slug}', array('uses' => 'user@profile', 'secure' => true))->where(array('id' => '[a-zA-Z0-9\_\-]+', 'slug' => '[a-zA-Z0-9\_\-]+'));
+$request->any('{id}', array('uses' => 'user@profile', 'secure' => false))->where(array('id' => '[a-zA-Z0-9\_\-]+'));
+$request->any('{id}/{slug}', array('uses' => 'user@profile', 'secure' => false))->where(array('id' => '[a-zA-Z0-9\_\-]+', 'slug' => '[a-zA-Z0-9\_\-]+'));
