@@ -481,8 +481,9 @@ class PaymentController extends Controller {
         $url = ($type == 'pro' or $type == 'pro-users') ? url('settings/pro') : url();
         $url = Hook::getInstance()->fire('payment.success.url', $url, array($type, $typeId));
 
-        //var_dump($ligne_response);
-        var_dump($url);
+        var_dump($typeId);
+        var_dump($type);
+        var_dump($price);
         die;
         
         if ($statut_received == 200) {
