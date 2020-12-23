@@ -18,7 +18,10 @@ $typeId = (isset($typeId)) ? $typeId : '';
                    data-type="<?php echo $type?>"
                    data-typeid="<?php echo $typeId?>"
                    data-wave-colored="<?php echo (config('player-progress-type','bar') != 'bar') ? $track['wave_colored'] : '' ?>"
-                   class="play-button track-play-button track-play-button-<?php echo $track['id']?>" id="track-play-button-<?php echo $track['id']?>" ></a>
+                   class="play-button track-play-button track-play-button-<?php echo $track['id']?>" id="track-play-button-<?php echo $track['id']?>" ><i class="fa  fa-play"></i></a>
+
+                <div class="play-controls" data-wave="">
+                </div>
             </div>
             <?php Hook::getInstance()->fire('track.slide.art', null, array($track))?>
         </div>
