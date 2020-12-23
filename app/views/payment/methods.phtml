@@ -58,7 +58,7 @@
         <input type="hidden" name="ref" value="<?= $reference ?>">
         <input type="hidden" name="service" value="WEB">
         <input type="hidden" name="operateur" value="AM">
-        <input type="hidden" name="redirect" value="<?php echo url('payment/pvit/complete', array('reference' => $reference))?>">
+        <input type="text" name="redirect" value="<?php echo url('payment/pvit/complete', array('reference' => $reference,'type' => $type, 'typeid' => $typeId, 'price' => $price))?>">
         <div class="each">
             <button name="submitButton" value="PAYER" type="submit" class="btn btn-block btn-lg  mt-2 round-sm" style="width:200px;background-color: #7451eb;margin: auto;font-weight: bold;color:#fff"><img style="width:20px" src="<?php echo assetUrl('assets/images/am.png')?>"/> <?php _l('airtel-money')?> </button>
         </div>
@@ -70,7 +70,7 @@
         <input type="hidden" name="ref" value="<?= $reference ?>">
         <input type="hidden" name="service" value="WEB">
         <input type="hidden" name="operateur" value="MC">
-        <input type="hidden" name="redirect" value="<?php echo url('payment/pvit/complete', array('reference' => $reference))?>">
+        <input type="hidden" name="redirect" value="<?php echo url('payment/pvit/complete', array('reference' => $reference, 'type' => $type, 'typeid' => $typeId, 'price' => $price))?>">
         <div class="each">
             <button name="submitButton" value="PAYER" type="submit" class="btn btn-block btn-lg  mt-2 round-sm" style="width:200px;background-color: #7451eb;margin: auto;font-weight: bold;color:#fff"><img style="width:20px" src="<?php echo assetUrl('assets/images/mc.png')?>"/> <?php _l('mobicash')?> </button>
         </div>
