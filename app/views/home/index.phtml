@@ -11,6 +11,21 @@
                 </div>
                 <div class="float-right">
                     <ul>
+                        <?php if(config('separate-login', 0)):?>
+                            <li><a   href="<?php echo url('login')?>" class="">
+                                    <span class="hide-mobile-sm"><?php _l('sign-in')?></span>
+                                    <i class="show-mobile-sm la la-lock " style="position:relative;bottom: 5px;display: none;"></i>
+                                </a></li>
+                            <li class="hide-mobile-sm"><a    href="<?php echo url('signup')?>" class=""><?php _l('create-account')?></a></li>
+
+                        <?php else:?>
+                            <li><a  onclick="return changeAuthModal('.login-form')"   href="" class="">
+                                    <span class="hide-mobile-sm"><?php _l('sign-in')?></span>
+                                    <i class="show-mobile-sm la la-lock " style="position:relative;bottom: 5px;display: none;"></i>
+                                </a></li>
+                            <li class="hide-mobile-sm"><a  onclick="return changeAuthModal('.signup-form')"   href="" class=""><?php _l('create-account')?></a></li>
+
+                        <?php endif?>
                         <li><a href="" title="<?php _l('change-theme-mode')?>" onclick="return change_theme_mode('<?php echo getThemeMode()?>')" class="theme-mode-button mtitle"><i class="la la-lightbulb-o"></i></a> </li>
                         <li class="dropdown">
                             <?php $languages = Translator::instance()->getAvailableLanguages()?>
@@ -29,7 +44,7 @@
 
             <div class="topography-content">
                 <div class="topo-hero" data-animation="slideInLeft" data-animation-delay="400">
-                    <div class="">
+                    <!--div class="">
                         <?php if(!config('separate-login', 0)):?>
                             <a class="btn btn-white-border mr-4" href="#" onclick="return changeAuthModal('.login-form')" ><?php _l('sign-in')?></a>
                             <?php if(config('user-signup', true)):?>
@@ -41,11 +56,18 @@
                                 <a href="<?php echo url('signup')?>"  class="btn btn-white-bg" style="background-color: #003668; color:#fff;"><?php _l('create-account')?></a>
                             <?php endif?>
                         <?php endif?>
-                    </div>
- 
-                    <div class="mt-5">
-                        <h1><?php _l('find-the-music')?> <?php _l('you-love')?>. </h1>
-                        <h4 class="mt-4"><?php _l('discover-new-tracks-title')?></h4>
+                    </div-->
+
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="mt-5">
+                                <h1><?php _l('find-the-music')?> <?php _l('you-love')?>. </h1>
+                                <h4 class="mt-4"><?php _l('discover-new-tracks-title')?></h4>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                        
+                        </div>
                     </div>
                 </div>
 
@@ -55,7 +77,7 @@
 
         <div></div>
     </div>
-    <div class="bg-section-search">
+    <!--div class="bg-section-search">
         <div class="section">
             <div class="inner-container">
                 <form action="<?php echo url('search')?>" method="post" class="search-hero" >
@@ -67,7 +89,7 @@
 
         </div>
 
-    </div>
+    </div-->
 
     <div class="inner-container ">
         <div class="row mt-4" style="margin-bottom: 50px;">
@@ -143,9 +165,9 @@
                         <div class="section-title align-center"  data-animation="fadeInDown" data-animation-delay="400">
                             <h2><?php _l('get-connected-with-great-artists')?></h2>
                             <span class="note"><?php _l('get-connected-with-great-artists-note')?></span>
-                            <div class="mt-5">
+                            <!--div class="mt-5">
                                 <a  href="<?php echo url('discover/artists')?>" class="btn btn-primary  pr-5 pl-5"><?php _l('meet-great-artists')?></a>
-                            </div>
+                            </div-->
                         </div>
                     </div>
                 </div>
