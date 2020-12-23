@@ -2448,6 +2448,10 @@ b{
 .content-cover{
     margin-top: 80px;
 }
+
+.content-cover h3{
+    color: #fff;
+}
 .topography .topo-header  ul li a{
     display: block;
     color: grey;
