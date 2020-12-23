@@ -45,8 +45,8 @@ $request->any('welcome/load', array('uses' => 'home@welcomeLoad'));
 $request->any('welcome/finish', array('uses' => 'home@welcomeFinish'));
 
 
-$request->any('search', array('uses' => 'home@search', 'secure' => false));
-$request->any('search/dropdown', array('uses' => 'home@searchDropdown', 'secure' => false));
+$request->any('search', array('uses' => 'home@search', 'secure' => true));
+$request->any('search/dropdown', array('uses' => 'home@searchDropdown', 'secure' => true));
 
 $request->any('sitemap', array('uses' => 'home@sitemap', 'secure' => false));
 
@@ -79,7 +79,7 @@ $request->any('page/{id}', array('uses' => 'home@page', 'secure' => false))->whe
 $request->any('upload/track', array('uses' => 'track@upload'));
 $request->any('upload/track/wave', array('uses' => 'track@uploadWave'));
 $request->any('upload/track/picture', array('uses' => 'track@uploadPicture'));
-$request->any('load/track/player/buttons', array('uses' => 'track@loadPlayerButtons', 'secure' => true));
+$request->any('load/track/player/buttons', array('uses' => 'track@loadPlayerButtons', 'secure' => false));
 $request->any('track/play/{id}/{hash}', array('uses' => 'track@play', 'secure' => true))->where(array('id' => '[a-zA-Z0-9\_\-]+', 'hash' => '[a-zA-Z0-9\_\-]+'));
 $request->any('track/load', array('uses' => 'track@load', 'secure' => false));
 $request->any('player/load', array('uses' => 'track@playerLoad', 'secure' => true));
@@ -130,7 +130,7 @@ $request->any('save/theme/mode', array('uses' => 'home@saveThemeMode', 'secure' 
 
 $request->any('clear/history', array('uses' => 'home@clearHistory'));
 
-$request->any('playlist/paginate', array('uses' => 'track@playlistPaginate', 'secure' => false));
+$request->any('playlist/paginate', array('uses' => 'track@playlistPaginate', 'secure' => true));
 
 $request->any('artists/paginate', array('uses' => 'user@paginateArtists', 'secure' => true));
 
@@ -231,5 +231,5 @@ $request->any('api/{key}/activate/pro', array('uses' => 'api@activatePro', 'secu
 $request->any('embed/track/{id}', array('uses' => 'home@embedCode', 'secure' => false))->where(array('id' => '[a-zA-Z0-9\_\-]+'));
 $request->any('embed/playlist/{id}', array('uses' => 'home@embedCode', 'secure' => false))->where(array('id' => '[a-zA-Z0-9\_\-]+'));
 
-$request->any('{id}', array('uses' => 'user@profile', 'secure' => false))->where(array('id' => '[a-zA-Z0-9\_\-]+'));
-$request->any('{id}/{slug}', array('uses' => 'user@profile', 'secure' => false))->where(array('id' => '[a-zA-Z0-9\_\-]+', 'slug' => '[a-zA-Z0-9\_\-]+'));
+$request->any('{id}', array('uses' => 'user@profile', 'secure' => true))->where(array('id' => '[a-zA-Z0-9\_\-]+'));
+$request->any('{id}/{slug}', array('uses' => 'user@profile', 'secure' => true))->where(array('id' => '[a-zA-Z0-9\_\-]+', 'slug' => '[a-zA-Z0-9\_\-]+'));
