@@ -2926,7 +2926,7 @@ b{
 .grid-container .grid .grid-title-container {
     padding: 10px 10px;
 }
-.dark-mode .grid-container .grid .grid-title-container{
+.dark-mode .grid-container .grid .grid-title-container a, dark-mode .grid-container .grid .grid-title-container span{
     color: #fff;
 }
 .grid-container .grid .grid-title-container .grid-info{
