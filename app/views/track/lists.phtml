@@ -41,6 +41,8 @@
             <?php if($track and isset($track['time'])):?>
                 <?php if($viewType == 'inline'):?>
                     <?php echo $C->view('track/track-inline', array('track' => $track ,'offset' => $i, 'type' => $type,'typeId' => $typeId))?>
+                <?php elseif($viewType == 'inline-home'):?>
+                    <?php echo $C->view('track/track-inline-home', array('track' => $track ,'offset' => $i, 'type' => $type,'typeId' => $typeId))?>
                 <?php elseif($viewType == 'small-inline'):?>
                     <?php echo $C->view('track/track-small-inline', array('track' => $track ,'offset' => $i, 'type' => $type,'typeId' => $typeId))?>
                 <?php elseif($viewType == 'small-inline-nextup'):?>
