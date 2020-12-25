@@ -45,7 +45,7 @@ class PaymentController extends Controller {
             $token_received=$ligne_response->TOKEN; 
             $agent_received=$ligne_response->AGENT;
         }else{
-            $statut_received=$_POST['statut']
+            $statut_received=$_POST['statut'];
         }
 
         $url = ($type == 'pro' or $type == 'pro-users') ? url('settings/pro') : url();
