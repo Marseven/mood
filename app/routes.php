@@ -157,20 +157,8 @@ $request->any('statistics', array('uses' => 'home@stats'));
 $request->any('load/charts', array('uses' => 'home@loadCharts'));
 
 $request->any('payment/method', array('uses' => 'payment@load'));
-$request->any('payment/stripe', array('uses' => 'payment@stripe'));
-$request->any('payment/stripe/hook', array('uses' => 'payment@stripeHook', 'secure' => false));
-$request->any('payment/stripe/cancel', array('uses' => 'payment@stripeCancel', 'secure' => false));
 
-$request->any('payment/paypal', array('uses' => 'payment@initPaypal'));
-$request->any('payment/paypal/complete', array('uses' => 'payment@completePaypal'));
-
-$request->any('payment/pvit/complete', array('uses' => 'payment@completePvit'));
-
-$request->any('payment/bank/transfer', array('uses' => 'payment@bankTransfer'));
-
-$request->any('payment/mollie', array('uses' => 'payment@initMollie'));
-$request->any('payment/mollie/verify', array('uses' => 'payment@verifyMollie'));
-$request->any('payment/mollie/hook', array('uses' => 'payment@hookMollie'));
+$request->any('payment/pvit', array('uses' => 'payment@pvit'));
 
 
 $request->any('message/form', array('uses' => 'message@form'));
