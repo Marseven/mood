@@ -32,6 +32,7 @@ class PaymentController extends Controller {
         $price = $this->request->input('price');
        
         $data_received=file_get_contents("php://input");
+        var_dump($data_received);die;
         if( $data_received){
             $data_received_xml=new SimpleXMLElement($data_received); 
             $ligne_response=$data_received_xml[0]; 
