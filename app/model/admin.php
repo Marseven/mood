@@ -117,7 +117,7 @@ class AdminModel extends Model {
         return $query->fetch(PDO::FETCH_ASSOC);
     }
     public function deleteMood($id) {
-        return $this->db->query("DELETE FROM genre WHERE id=? ", $id);
+        return $this->db->query("DELETE FROM mood WHERE id=? ", $id);
     }
 
     public function addTransaction($details) {
