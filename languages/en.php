@@ -1184,5 +1184,6 @@ return array(
     "mobicash" => "Mobicash",
     "biblio" => "Library",
     "join-us" => "Enjouy your music",
+    "news" => "News",
 
 );

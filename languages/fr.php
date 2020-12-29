@@ -174,7 +174,7 @@ return array(
     "upload-a-song" => "Télécharger une chanson",
     "metadata" => "Métadonnées",
     "permissions" => "Les permissions",
-    "select-image" => "Sélectionner une image",
+    "select-image" => "Sélectionner",
     "select-song-note" => "Sélectionnez des chansons de votre ordinateur. Les formats de support sont:",
     "title" => "Titre",
     "description" => "La description",
@@ -1159,4 +1159,5 @@ return array(
     "mobicash" => "Mobicash",
     "biblio" => "Bibliothèque",
     "join-us" => "Profitez de votre musique",
+    "news" => "Actualités",
 );

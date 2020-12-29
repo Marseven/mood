@@ -38,5 +38,7 @@
             <li><a id="page-<?php echo $page['id']?>" class="sub-menu  <?php echo ( $C->activeMenu == 'page-'.$page['id']) ? 'active' : null?> " href="<?php echo url('page/'.$page['url'])?>"  data-ajax="true"> <i class="la la-info  "></i><span><?php _l($page['title'])?></span></a></li>
         <?php endforeach?>
     <?php endif?>
+
+    <li><a id="actualite-menu" class="sub-menu " href="http://news.moodmusic.fun/"  data-ajax="true"> <i class="fa fa-newspaper-o"></i> <span><?php _l('news')?></span></a></li>
     
 </ul>
