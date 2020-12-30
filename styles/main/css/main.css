@@ -728,6 +728,10 @@ input.cmn-toggle-round-flat:checked + label:after {
     font-weight: 600;
 }
 
+a.btn.mtooltip.each{
+    color: #7451eb;
+}
+
 .box {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
