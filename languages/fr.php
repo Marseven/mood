@@ -675,10 +675,10 @@ return array(
     "promote-to_pro-member" => "Promouvoir en PRO MEMBRE",
     "full-name" => "Nom complet",
     "enable-gdpr-cookie-alert" => "Activer l'alerte GDPR / COOKIES",
-    "gdpr-text" => "Ce site utilise des cookies pour fournir nos services et pour vous montrer des annonces pertinentes et des offres d'emploi.
+    "gdpr-text" => "Ce site utilise des cookies pour fournir nos services et pour vous montrer des annonces pertinentes.
      En utilisant notre site, vous reconnaissez avoir lu et compris notre politique de cookie,
      Politique de confidentialité et nos conditions d'utilisation. Votre utilisation de nos produits et services,
-     compris notre réseau, est soumis à ces politiques et conditions.",
+     compris notre réseau, est soumis à ces termes.",
     "got-it" => "Je l'ai",
     "enable-facebook-login" => "Activer la connexion Facebook",
     "facebook-id" => "Facebook ID",
