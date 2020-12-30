@@ -1,7 +1,5 @@
 <?php
 $request->get('/', array('uses' => 'home@index', 'secure' => false));
-$request->get('privacy', array('uses' => 'home@privacy', 'secure' => false));
-$request->get('engagement', array('uses' => 'home@engagement', 'secure' => false));
 
 //admin
 $request->get('admin', array('uses' => 'admin@index'));

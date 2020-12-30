@@ -46,16 +46,6 @@ class HomeController extends Controller {
         return $this->render($this->view('home/feed', array('type' => 'feed', 'content' => $content)), true);
     }
 
-    public function privacy() {
-        
-        return $this->render($this->view('home/privacy', array('type' => 'privacy')), true);
-    }
-
-    public function engagement() {
-        
-        return $this->render($this->view('home/user_engagement', array('type' => 'user_engagement')), true);
-    }
-
     public function upload() {
         $this->setTitle(l('upload-a-song'));
         $this->addBreadCrumb(l('upload'));
