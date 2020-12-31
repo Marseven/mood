@@ -207,7 +207,6 @@ class Controller {
         var_dump(config('enable-ftp', false));
         var_dump(config('enable-wasabi', false));
         var_dump(config('enable-s3', false));
-        
         die;
 
         if(config('enable-ftp', false)) {
