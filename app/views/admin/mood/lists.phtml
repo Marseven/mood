@@ -51,11 +51,11 @@
                 <form action="<?php echo getFullUrl(true)?>" class="general-form" method="post">
 
                     <div class="form-group">
-                        <input autocomplete="off" name="val[name]" type="text" class="form-control"   placeholder="<?php _l('name')?>" <?php if($mood) echo "value='".$mood['name']."'";  ?>>
+                        <input autocomplete="off" name="val[name]" type="text" class="form-control"   placeholder="<?php _l('name')?>" <?php if($mood_edit) echo "value='".$mood_edit['name']."'";  ?>>
                     </div>
 
                     <div class="form-group">
-                        <textarea autocomplete="off" name="val[description]" class="form-control"   placeholder="<?php _l('description')?>" <?php if($mood) echo "value='".$mood['description']."'";  ?>></textarea>
+                        <textarea autocomplete="off" name="val[description]" class="form-control"   placeholder="<?php _l('description')?>" <?php if($mood_edit) echo "value='".$mood_edit['description']."'";  ?>></textarea>
                     </div>
 
                     <div class="form-group">
@@ -69,7 +69,7 @@
                                     <div class="col-md-3">
                                         <div class="input-picker mb-3">
                                             <button class="btn btn-outline-secondary btn-sm btn-block"><i class="la la-upload"></i></button>
-                                            <input data-placeholder="#profileAvatar" onchange="validate_file_size(this, 'image')" type="file" name="picture" <?php if($mood) echo "value='".$mood['picture']."'";  ?> />
+                                            <input data-placeholder="#profileAvatar" onchange="validate_file_size(this, 'image')" type="file" name="picture" <?php if($mood_edit) echo "value='".$mood_edit['picture']."'";  ?> />
                                         </div>
                                     </div>
                                     <div class="col">
@@ -80,8 +80,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <?php if($mood){ ?>
-                                    <input name="val[id]" type="hidden" value="<?= $mood['id'] ?>" >
+                            <?php if($mood_edit){ ?>
+                                    <input name="val[id]" type="hidden" value="<?= $mood_edit['id'] ?>" >
                                 <?php }  ?>
                         </div>
 

@@ -51,7 +51,7 @@
                 <form action="<?php echo getFullUrl(true)?>" class="general-form" method="post">
 
                     <div class="form-group">
-                        <input autocomplete="off" name="val[name]" type="text" class="form-control"   placeholder="<?php _l('name')?>"  <?php if($genre) echo "value='".$genre['name']."'";  ?>>
+                        <input autocomplete="off" name="val[name]" type="text" class="form-control"   placeholder="<?php _l('name')?>"  <?php if($genre_edit) echo "value='".$genre_edit['name']."'";  ?>>
                     </div>
 
                     <div class="form-group">
@@ -65,7 +65,7 @@
                                     <div class="col-md-3">
                                         <div class="input-picker mb-3">
                                             <button class="btn btn-outline-secondary btn-sm btn-block"><i class="la la-upload"></i></button>
-                                            <input data-placeholder="#profileAvatar" onchange="validate_file_size(this, 'image')" type="file" name="picture" <?php if($genre) echo "value='".$genre['picture']."'";  ?> />
+                                            <input data-placeholder="#profileAvatar" onchange="validate_file_size(this, 'image')" type="file" name="picture" <?php if($genre_edit) echo "value='".$genre_edit['picture']."'";  ?> />
                                         </div>
                                     </div>
                                     <div class="col">
@@ -75,8 +75,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <?php if($genre){ ?>
-                                    <input name="val[id]" type="hidden" value="<?= $genre['id'] ?>" >
+                                <?php if($genre_edit){ ?>
+                                    <input name="val[id]" type="hidden" value="<?= $genre_edit['id'] ?>" >
                                 <?php }  ?>
                             </div>
                         </div>

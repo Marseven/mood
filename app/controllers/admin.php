@@ -257,7 +257,7 @@ class AdminController extends Controller {
 
         if($this->request->input('id')){
             $genre = $this->model('admin')->findGenre($this->request->input('id'));
-            return $this->render($this->view('admin/genre/lists', array('genres' => $genres, 'genre' => $genre, 'message' => $message)), true);
+            return $this->render($this->view('admin/genre/lists', array('genres' => $genres, 'genre_edit' => $genre, 'message' => $message)), true);
         }else{
             return $this->render($this->view('admin/genre/lists', array('genres' => $genres, 'message' => $message)), true);
         }
@@ -335,7 +335,7 @@ class AdminController extends Controller {
 
         if($this->request->input('id')){
             $mood = $this->model('admin')->findMood($this->request->input('id'));
-            return $this->render($this->view('admin/genre/lists', array('genres' => $moods, 'genre' => $mood, 'message' => $message)), true);
+            return $this->render($this->view('admin/genre/lists', array('moods' => $moods, 'mood_edit' => $mood, 'message' => $message)), true);
         }else{
             return $this->render($this->view('admin/mood/lists', array('moods' => $moods, 'message' => $message)), true);
         }
