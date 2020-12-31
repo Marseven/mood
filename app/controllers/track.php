@@ -62,9 +62,9 @@ class TrackController extends Controller {
                 $val['wave'] = $wave;
                 $val['waveColored'] = $waveColored;
             }
+            die;
+            $tmpMove = $this->uploadFile($tmpMove);
             
-            $tmpMove = $uploader->uploadFile($tmpMove);
-            //die;
             Database::getInstance()->query("INSERT INTO tmp_files (path,time)VALUES(?,?)", $tmpMove, time()); //add the files do later delete
             $val['audio'] = $tmpMove;
             
