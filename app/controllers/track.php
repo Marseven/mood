@@ -14,8 +14,9 @@ class TrackController extends Controller {
         $val = array(
             'number' => $this->request->input('number')
         );
-        die('ici');
+        
         $uploader->setPath("tracks/".$this->model('user')->authId.'/tracks/'.date('Y').'/');
+        die('ici');
         if ($uploader->passed()) {
             $val['size'] = $audioSize;
             $sourceFile = $audio['tmp_name'];
