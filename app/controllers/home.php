@@ -723,8 +723,6 @@ class HomeController extends Controller {
         if(empty($code)) {
             $_SESSION['state'] = md5(uniqid(rand(), TRUE));
             $dialog_url = "https://www.facebook.com/dialog/oauth?client_id=".$app_id."&redirect_uri=".urlencode($my_url)."&scope=email&state=".$_SESSION['state'];
-            var_dump($dialog_url);
-            die('ici');
             $this->request->redirect($dialog_url);
         }
 
