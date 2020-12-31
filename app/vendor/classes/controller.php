@@ -203,6 +203,8 @@ class Controller {
 
     public function uploadFile($tmpMove, $delete = true) {
 
+        var_dump($tmpMove);die;
+
         if(config('enable-ftp', false)) {
             $ftp = $this->model('track')->getFtp();
             $pathInfo = pathinfo($tmpMove);
