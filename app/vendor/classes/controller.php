@@ -204,12 +204,12 @@ class Controller {
     public function uploadFile($tmpMove, $delete = true) {
 
         var_dump($tmpMove);
-        var_dump(config('enable-ftp', false));
-        var_dump(config('enable-wasabi', false));
-        var_dump(config('enable-s3', false));
+        var_dump(config('enable-ftp', false)  != 0);
+        var_dump(config('enable-wasabi', false) != 0);
+        var_dump(config('enable-s3', false) != 0);
         die;
 
-        if(config('enable-ftp', false)) {
+        if(config('enable-ftp', false) != 0) {
             $ftp = $this->model('track')->getFtp();
             $pathInfo = pathinfo($tmpMove);
             $path = $pathInfo['dirname'];
@@ -224,7 +224,7 @@ class Controller {
             }
             $ftp->close();
             return 'ftp-'.$tmpMove;
-        } elseif(config('enable-wasabi', false)) {
+        } elseif(config('enable-wasabi', false) != 0) {
             $s3 = $this->model('track')->getWasabiS3();
             $pathInfo = pathinfo($tmpMove);
             $extension = strtolower($pathInfo['extension']);
@@ -245,7 +245,7 @@ class Controller {
                 return $tmpMove;
             }
         }
-        else if (config('enable-s3', false)) {
+        else if (config('enable-s3', false) != 0) {
             $s3 = $this->model('track')->getS3();
             $pathInfo = pathinfo($tmpMove);
             $extension = strtolower($pathInfo['extension']);
