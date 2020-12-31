@@ -403,7 +403,7 @@ return array(
     "create-account" => "Créer un compte",
     "find-the-music" => "Trouves la musique que",
     "you-love" => "tu aimes",
-    "discover-new-tracks-title" => "Découvres de nouveaux morceaux. <br/> Vis des émotions uniques avec Mood.",
+    "discover-new-tracks-title" => "Découvrir de nouveaux morceaux. Vivre des émotions uniques avec Mood.",
     "upload-your-music" => "Téléchargez votre musique",
     "search-for-artists-tracks" => "Recherche d'artistes, titres e.t.c",
     "hear-whats-trending-on" => "Écoutez les tendances",
