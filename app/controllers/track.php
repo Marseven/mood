@@ -16,14 +16,14 @@ class TrackController extends Controller {
         );
         
         $uploader->setPath("tracks/".$this->model('user')->authId.'/tracks/'.date('Y').'/');
-        die('ici');
+        
         if ($uploader->passed()) {
             $val['size'] = $audioSize;
             $sourceFile = $audio['tmp_name'];
 
             $tmpMove = $uploader->uploadFile()->result();
             $file = path($tmpMove);
-            $getID3 = new getID3;
+            $getID3 = new getID3();
             $ThisFileInfo = $getID3->analyze(path($tmpMove));
             $val['duration'] = $ThisFileInfo['playtime_seconds'];
             $dir = md5($file);
