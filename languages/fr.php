@@ -1160,4 +1160,5 @@ return array(
     "biblio" => "Bibliothèque",
     "join-us" => "Profitez de votre musique",
     "news" => "Actualités",
+    "songs_liked" => "Morceaux Likés",
 );
