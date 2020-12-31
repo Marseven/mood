@@ -191,6 +191,7 @@ class AdminController extends Controller {
         $this->addBreadCrumb(l('manage-genres'));
 
         $genres = $this->model('admin')->getGenres($this->request->input('term', null));
+        
         $message = null;
 
         if ($this->request->input('action') == 'delete' ) {
@@ -200,28 +201,67 @@ class AdminController extends Controller {
         }
         if ($val = $this->request->input('val')) {
             if ($this->isDemo()) $this->defendDemo();
-            $validator = Validator::getInstance()->scan($val, array(
-                'name' => 'required',
-            ));
-
-            if ($validator->passes()) {
-                $this->model('admin')->addGenre($val, true);
-
-                //$this->request->redirect(url("admin/genres"));
-                return json_encode(array(
-                    'type' => 'url',
-                    'value' => url("admin/genres"),
-                    'message' => l('genre-added')
+            if($val['id']){
+                $validator = Validator::getInstance()->scan($val, array(
+                    'name' => 'required',
                 ));
-            } else {
-                $message = $validator->first();
-                return json_encode(array(
-                    'type' => 'error',
-                    'message' => $message
+
+                if ($this->request->inputFile('picture')) {
+                    $val['picture'] = $this->request->inputFile('picture');
+                }
+    
+                if ($validator->passes()) {
+                    $this->model('admin')->editGenre($val, true);
+    
+                    //$this->request->redirect(url("admin/genres"));
+                    return json_encode(array(
+                        'type' => 'url',
+                        'value' => url("admin/genres"),
+                        'message' => l('genre-edit')
+                    ));
+                } else {
+                    $message = $validator->first();
+                    return json_encode(array(
+                        'type' => 'error',
+                        'message' => $message
+                    ));
+                }
+            }else{
+                $validator = Validator::getInstance()->scan($val, array(
+                    'name' => 'required',
                 ));
+
+                if ($this->request->inputFile('picture')) {
+                    $val['picture'] = $this->request->inputFile('picture');
+                }
+    
+                if ($validator->passes()) {
+                    $this->model('admin')->addGenre($val, true);
+    
+                    //$this->request->redirect(url("admin/genres"));
+                    return json_encode(array(
+                        'type' => 'url',
+                        'value' => url("admin/genres"),
+                        'message' => l('genre-added')
+                    ));
+                } else {
+                    $message = $validator->first();
+                    return json_encode(array(
+                        'type' => 'error',
+                        'message' => $message
+                    ));
+                }
             }
+            
         }
-        return $this->render($this->view('admin/genre/lists', array('genres' => $genres, 'message' => $message)), true);
+
+        if($this->request->input('id')){
+            $genre = $this->model('admin')->findGenre($this->request->input('id'));
+            return $this->render($this->view('admin/genre/lists', array('genres' => $genres, 'genre' => $genre, 'message' => $message)), true);
+        }else{
+            return $this->render($this->view('admin/genre/lists', array('genres' => $genres, 'message' => $message)), true);
+        }
+        
     }
 
     public function moods() {
@@ -239,32 +279,67 @@ class AdminController extends Controller {
         }
         if ($val = $this->request->input('val')) {
             if ($this->isDemo()) $this->defendDemo();
-            $validator = Validator::getInstance()->scan($val, array(
-                'name' => 'required',
-            ));
-
-            if ($this->request->inputFile('picture')) {
-                $val['picture'] = $this->request->inputFile('picture');
-            }
-
-            if ($validator->passes()) {
-                $this->model('admin')->addMood($val, true);
-
-                //$this->request->redirect(url("admin/moods"));
-                return json_encode(array(
-                    'type' => 'url',
-                    'value' => url("admin/moods"),
-                    'message' => l('mood-added')
+            if($val['id']){
+                $validator = Validator::getInstance()->scan($val, array(
+                    'name' => 'required',
                 ));
-            } else {
-                $message = $validator->first();
-                return json_encode(array(
-                    'type' => 'error',
-                    'message' => $message
+    
+                if ($this->request->inputFile('picture')) {
+                    $val['picture'] = $this->request->inputFile('picture');
+                }
+    
+                if ($validator->passes()) {
+                    $this->model('admin')->editMood($val, true);
+    
+                    //$this->request->redirect(url("admin/moods"));
+                    return json_encode(array(
+                        'type' => 'url',
+                        'value' => url("admin/moods"),
+                        'message' => l('mood-edit')
+                    ));
+                } else {
+                    $message = $validator->first();
+                    return json_encode(array(
+                        'type' => 'error',
+                        'message' => $message
+                    ));
+                }
+            }else{
+                $validator = Validator::getInstance()->scan($val, array(
+                    'name' => 'required',
                 ));
+    
+                if ($this->request->inputFile('picture')) {
+                    $val['picture'] = $this->request->inputFile('picture');
+                }
+    
+                if ($validator->passes()) {
+                    $this->model('admin')->addMood($val, true);
+    
+                    //$this->request->redirect(url("admin/moods"));
+                    return json_encode(array(
+                        'type' => 'url',
+                        'value' => url("admin/moods"),
+                        'message' => l('mood-added')
+                    ));
+                } else {
+                    $message = $validator->first();
+                    return json_encode(array(
+                        'type' => 'error',
+                        'message' => $message
+                    ));
+                }
             }
+            
         }
-        return $this->render($this->view('admin/mood/lists', array('moods' => $moods, 'message' => $message)), true);
+
+        if($this->request->input('id')){
+            $mood = $this->model('admin')->findMood($this->request->input('id'));
+            return $this->render($this->view('admin/genre/lists', array('genres' => $moods, 'genre' => $mood, 'message' => $message)), true);
+        }else{
+            return $this->render($this->view('admin/mood/lists', array('moods' => $moods, 'message' => $message)), true);
+        }
+        
     }
 
     public function plugins() {

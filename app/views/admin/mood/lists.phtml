@@ -23,7 +23,7 @@
                             <img src="<?php echo $C->model('admin')->getPictureMood($mood)?>" class="mr-3 avatar" style="width: 100px;"/>
                             <div class="media-body clearfix">
                                 <div class="float-left">
-                                    <h5 class="mt-0"><a data-ajax="true" href="<?php echo url('')?>"><?php echo $mood['name']?></a></h5>
+                                    <h5 class="mt-0"><a data-ajax="true" href="<?php echo url('admin/moods', array('id' => $mood['id']))?>"><?php echo $mood['name']?></a></h5>
                                     <span><?php _l('used-in')?> <?php echo $C->model('track')->countMoodTracks($mood['id'])?> <strong><?php _l('tracks')?></strong></span>  
                                 </div>
                                 <div class="float-right">
@@ -51,11 +51,11 @@
                 <form action="<?php echo getFullUrl(true)?>" class="general-form" method="post">
 
                     <div class="form-group">
-                        <input autocomplete="off" name="val[name]" type="text" class="form-control"   placeholder="<?php _l('name')?>">
+                        <input autocomplete="off" name="val[name]" type="text" class="form-control"   placeholder="<?php _l('name')?>" <?php if($mood) echo "value='".$mood['name']."'";  ?>>
                     </div>
 
                     <div class="form-group">
-                        <textarea autocomplete="off" name="val[description]" class="form-control"   placeholder="<?php _l('description')?>"></textarea>
+                        <textarea autocomplete="off" name="val[description]" class="form-control"   placeholder="<?php _l('description')?>" <?php if($mood) echo "value='".$mood['description']."'";  ?>></textarea>
                     </div>
 
                     <div class="form-group">
@@ -69,7 +69,7 @@
                                     <div class="col-md-3">
                                         <div class="input-picker mb-3">
                                             <button class="btn btn-outline-secondary btn-sm btn-block"><i class="la la-upload"></i></button>
-                                            <input data-placeholder="#profileAvatar" onchange="validate_file_size(this, 'image')" type="file" name="picture" />
+                                            <input data-placeholder="#profileAvatar" onchange="validate_file_size(this, 'image')" type="file" name="picture" <?php if($mood) echo "value='".$mood['picture']."'";  ?> />
                                         </div>
                                     </div>
                                     <div class="col">
@@ -80,6 +80,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <?php if($mood){ ?>
+                                    <input name="val[id]" type="hidden" value="<?= $mood['id'] ?>" >
+                                <?php }  ?>
                         </div>
 
                     </div>

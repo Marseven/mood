@@ -43,11 +43,36 @@ class AdminModel extends Model {
          */
         extract($val);
 
+        if ($picture) {
+                        
+            $uploader = new Uploader($picture);
+            $uploader->setPath('genre/');
+            if ($uploader->passed()) {
+                $picture = $uploader->resize()->result();
+            } else {
+                return json_encode(array('type' => 'error', 'message' => $uploader->getError()));
+            }
+        }
+
         if (!$this->genreExists($name)) {
             $this->db->query("INSERT INTO genre (name) VALUES(?)", $name);
             return true;
         }
         return false;
+    }
+
+    public function editGenre($val) {
+        /**
+         * @var $name
+         */
+        extract($val);
+        $this->db->query("UPDATE genre SET name=?, picture=? WHERE id=?", $name, $picture, $id);
+        return true;
+    }
+
+    function getPictureGenre($genre=null, $size = 75) {
+        $picture = ($genre['picture'] != null) ? $genre['picture'] : 'assets/images/picture-mood.png';
+        return url_img($picture, $size);
     }
 
     public function genreExists($name) {
@@ -105,6 +130,15 @@ class AdminModel extends Model {
             return true;
         }
         return false;
+    }
+
+    public function editMood($val) {
+        /**
+         * @var $name
+         */
+        extract($val);
+        $this->db->query("UPDATE mood SET name=?, description=?, picture=? WHERE id=?", $name, $description, $picture, $id);
+        return true;
     }
 
     public function moodExists($name) {

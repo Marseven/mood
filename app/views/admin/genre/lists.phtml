@@ -19,11 +19,11 @@
                 <div class="mt-5">
                     <?php foreach($genres as $genre):?>
                         <hr/>
-                        <div style="margin-bottom: 10px;">
-
-                            <div class=" clearfix">
+                        <div class="media" style="margin-bottom: 10px;">
+                            <img src="<?php echo $C->model('admin')->getPictureGenre($genre)?>" class="mr-3 avatar" style="width: 100px;"/>
+                            <div class="media-body clearfix">
                                 <div class="float-left">
-                                    <h5 class="mt-0"><a data-ajax="true" href="<?php echo url('')?>"><?php echo $genre['name']?></a></h5>
+                                    <h5 class="mt-0"><a data-ajax="true" href="<?php echo url('admin/genres', array('id' => $genre['id'])) ?>"><?php echo $genre['name']?></a></h5>
                                     <span><?php _l('used-in')?> <?php echo $C->model('track')->countGenreTracks($genre['id'])?> <strong><?php _l('tracks')?></strong></span>
                                 </div>
                                 <div class="float-right">
@@ -51,7 +51,35 @@
                 <form action="<?php echo getFullUrl(true)?>" class="general-form" method="post">
 
                     <div class="form-group">
-                        <input autocomplete="off" name="val[name]" type="text" class="form-control"   placeholder="<?php _l('name')?>">
+                        <input autocomplete="off" name="val[name]" type="text" class="form-control"   placeholder="<?php _l('name')?>"  <?php if($genre) echo "value='".$genre['name']."'";  ?>>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="bold"><?php _l('mood-picture')?></label>
+                                <span class="form-text text-muted"><?php echo config('image-file-types', 'jpg,png,gif,jpeg')?></span>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="input-picker mb-3">
+                                            <button class="btn btn-outline-secondary btn-sm btn-block"><i class="la la-upload"></i></button>
+                                            <input data-placeholder="#profileAvatar" onchange="validate_file_size(this, 'image')" type="file" name="picture" <?php if($genre) echo "value='".$genre['picture']."'";  ?> />
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="avatar-placeholder">
+                                            <div id="profileAvatar" style="background-image: url(<?php echo $C->model('admin')->getPictureGenre(null, 200)?>);display: block;"></div>
+                                            <i class="la la-photo"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php if($genre){ ?>
+                                    <input name="val[id]" type="hidden" value="<?= $genre['id'] ?>" >
+                                <?php }  ?>
+                            </div>
+                        </div>
                     </div>
 
                     <button type="submit" data-size="s" data-style="zoom-in" type="submit" class="btn round-sm btn-primary btn-sm ladda-button" id="user-edit-button"><?php _l('submit')?></button>
