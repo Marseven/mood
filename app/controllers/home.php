@@ -398,12 +398,12 @@ class HomeController extends Controller {
         $this->setTitle(l('charts'));
         $this->activeMenu = 'charts';
         $page = $this->request->segment(1, 'new-hot');
-        $mood = $this->request->input('mood', 'all');
+        $genre = $this->request->input('genre', 'all');
         $time = $this->request->input('time', config(($page == 'new-hot') ? 'chart-new-hot-time' : 'chart-top-time', 'this-week'));
 
         $this->addBreadCrumb(($page == 'top') ? l('top-50') : l($page));
 
-        return $this->render($this->view('charts/index', array('page' => $page, 'mood' => $mood, 'time' => $time)), true);
+        return $this->render($this->view('charts/index', array('page' => $page, 'genre' => $genre, 'time' => $time)), true);
     }
 
     public function moods() {
