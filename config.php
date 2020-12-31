@@ -24,7 +24,7 @@ return array(
      */
     'cookie_path' => '/',
 
-    'permalink' => false,
+    'permalink' => true,
 
 
     'default_language' => 'fr',

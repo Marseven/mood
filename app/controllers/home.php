@@ -757,8 +757,6 @@ class HomeController extends Controller {
         $params = json_decode($response);
 
         if(isset($params->access_token) && $params->access_token) {
-            var_dump($params);
-            die('ici');
             $access_token = $params->access_token;
             $appsecret_proof = hash_hmac('sha256', $access_token, $app_secret);
             $graph_url = "https://graph.facebook.com/me?access_token=".$access_token."&appsecret_proof=".$appsecret_proof."&fields=id,name,first_name,last_name,email,gender";
@@ -793,8 +791,6 @@ class HomeController extends Controller {
         }
 
         if(isset($user) && $user) {
-            var_dump($user);
-            die('ici');
             $username = toAscii($userProfile->first_name.'_'.$userProfile->last_name);
             if (!$username) $username = 'fb_'.$userProfile->id;
             $username = str_replace(array(' ', '.'), array('', ''), $username);
