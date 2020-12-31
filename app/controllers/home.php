@@ -726,8 +726,6 @@ class HomeController extends Controller {
             $this->request->redirect($dialog_url);
         }
 
-        die('ici');
-
         // if(input('state') != $_SESSION['state']) exit("The state does not match. You may be a victim of CSRF.");
         $token_url = "https://graph.facebook.com/oauth/access_token?"."client_id=".urlencode($app_id)."&redirect_uri=".urlencode($my_url)."&client_secret=".urlencode($app_secret)."&code=".urlencode($code);
         $ch = curl_init();
@@ -757,7 +755,7 @@ class HomeController extends Controller {
         }
         curl_close($ch);
         $params = json_decode($response);
-
+        die('ici');
         if(isset($params->access_token) && $params->access_token) {
             $access_token = $params->access_token;
             $appsecret_proof = hash_hmac('sha256', $access_token, $app_secret);
