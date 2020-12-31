@@ -24,7 +24,7 @@ class TrackController extends Controller {
             $tmpMove = $uploader->uploadFile()->result();
             $file = path($tmpMove);
             $getID3 = new getID3();
-            die;
+            
             $ThisFileInfo = $getID3->analyze(path($tmpMove));
             $val['duration'] = $ThisFileInfo['playtime_seconds'];
             $dir = md5($file);
@@ -33,7 +33,7 @@ class TrackController extends Controller {
                 $fileIndex = @fopen(path("uploads/waves/$dir/index.html"), 'x+');
                 fclose($fileIndex);
             }
-            
+            die;
             if (config('wave-generator', 'browser') == 'server') {
                 $wave = 'uploads/waves/'.$dir.'/wave_base'.time().'.png';
                 $waveColored = 'uploads/waves/'.$dir.'/wave_top'.time().'.png';
