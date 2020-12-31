@@ -719,12 +719,14 @@ class HomeController extends Controller {
         $app_secret = config('facebook-secret');
         $my_url = url('auth/facebook');
         $code = $this->request->input('code');
-        die('ici');
+        
         if(empty($code)) {
             $_SESSION['state'] = md5(uniqid(rand(), TRUE));
             $dialog_url = "http://www.facebook.com/dialog/oauth?client_id=".$app_id."&redirect_uri=".urlencode($my_url)."&scope=email&state=".$_SESSION['state'];
             $this->request->redirect($dialog_url);
         }
+
+        die('ici');
 
         // if(input('state') != $_SESSION['state']) exit("The state does not match. You may be a victim of CSRF.");
         $token_url = "https://graph.facebook.com/oauth/access_token?"."client_id=".urlencode($app_id)."&redirect_uri=".urlencode($my_url)."&client_secret=".urlencode($app_secret)."&code=".urlencode($code);
