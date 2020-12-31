@@ -33,7 +33,7 @@ class TrackController extends Controller {
                 $fileIndex = @fopen(path("uploads/waves/$dir/index.html"), 'x+');
                 fclose($fileIndex);
             }
-            die;
+            
             if (config('wave-generator', 'browser') == 'server') {
                 $wave = 'uploads/waves/'.$dir.'/wave_base'.time().'.png';
                 $waveColored = 'uploads/waves/'.$dir.'/wave_top'.time().'.png';
@@ -62,6 +62,7 @@ class TrackController extends Controller {
                 $val['wave'] = $wave;
                 $val['waveColored'] = $waveColored;
             }
+            die;
             $tmpMove = $this->uploadFile($tmpMove);
             
             Database::getInstance()->query("INSERT INTO tmp_files (path,time)VALUES(?,?)", $tmpMove, time()); //add the files do later delete
