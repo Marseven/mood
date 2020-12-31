@@ -24,6 +24,7 @@ class TrackController extends Controller {
             $tmpMove = $uploader->uploadFile()->result();
             $file = path($tmpMove);
             $getID3 = new getID3();
+            die;
             $ThisFileInfo = $getID3->analyze(path($tmpMove));
             $val['duration'] = $ThisFileInfo['playtime_seconds'];
             $dir = md5($file);
