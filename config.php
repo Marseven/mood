@@ -31,11 +31,6 @@ return array(
 
     'api-key' => 'normalKey',
 
-    'rtl-langs' => array(
-        'ar',
-        'fa',
-    ),
-
     'demo' => false,
     'site-title' => 'Mood',
 

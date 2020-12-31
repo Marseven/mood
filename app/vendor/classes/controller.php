@@ -203,7 +203,12 @@ class Controller {
 
     public function uploadFile($tmpMove, $delete = true) {
 
-        var_dump($tmpMove);die;
+        var_dump($tmpMove);
+        var_dump(config('enable-ftp', false));
+        var_dump(config('enable-wasabi', false));
+        var_dump(config('enable-s3', false));
+        
+        die;
 
         if(config('enable-ftp', false)) {
             $ftp = $this->model('track')->getFtp();
