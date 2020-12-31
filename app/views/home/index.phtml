@@ -182,7 +182,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="home-artists-container clearfix" data-animation="fadeInDown" data-animation-delay="400">
-                        <?php foreach(model('user')->getRandomArtists(14) as $user):?>
+                        <?php foreach(model('user')->getRandomArtists(26) as $user):?>
 
                             <a href="<?php echo model('user')->profileUrl($user)?>" style="background-image: url(<?php echo model('user')->getAvatar($user)?>);"></a>
                         <?php endforeach;?>
