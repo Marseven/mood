@@ -414,7 +414,7 @@ return array(
     "access-to-fans" => "Toucher votre public",
     "know-more-about-music" => "En savoir plus sur votre musique",
     "get-connected-with-great-artists" => "Retrouver vos Artistes Préférés",
-    "get-connected-with-great-artists-note" => "Restez brancher à vas artistes et Découvrez les nouveautés.",
+    "get-connected-with-great-artists-note" => "Restez brancher à vos artistes et Découvrez les nouveautés.",
     "meet-great-artists" => "Retrouvez vos artistes",
     "terms-condition" => "Termes et conditions",
     "about-us" => "À propos de nous",
