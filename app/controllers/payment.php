@@ -85,7 +85,7 @@ class PaymentController extends Controller {
 		// =============================================================
 		// E-Billing server URL
 
-		$SERVER_URL = "http://lab.billing-easy.net/api/v1/merchant/e_bills";
+		$SERVER_URL = "https://lab.billing-easy.net/api/v1/merchant/e_bills";
 
 		// Username
 		$USER_NAME = 'aristide';
@@ -94,7 +94,7 @@ class PaymentController extends Controller {
 		$SHARED_KEY = 'a4e80739-61ea-430e-8ddc-db9eb7bf0783';
 
 		// POST URL
-		$POST_URL = 'http://sandbox.billing-easy.net';
+		$POST_URL = 'https://sandbox.billing-easy.net';
 
 
         // Fetch all data (including those not optional) from session
