@@ -157,19 +157,13 @@ class PaymentController extends Controller {
         echo "<script language='JavaScript'>";
         echo "document.frm.submit();";
         echo "</script>";
-
-        break;
+        exit();
     }
 
     //notification de paiement ebilling en arrière-plan
     public function notificaation_eb(){
         if($this->request->is('post')){
-			$connection = ConnectionManager::get('default');
-			$results = $connection
-			->execute(
-				"UPDATE paiement SET paymentsystem = '".$_POST['paymentsystem']."', transactionid = '".$_POST['transactionid']."', billingid = '".$_POST['billingid']."', amount = '".$_POST['amount']."', etat = '".$_POST['etat']."'  WHERE external_reference = ".$_POST['reference']
-			);
-			if($results){
+			if($this->model('admin')->addEbilling($_POST, true)){
 				http_response_code(200);
 				echo http_response_code();
 				exit();

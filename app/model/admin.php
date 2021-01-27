@@ -550,4 +550,9 @@ class AdminModel extends Model {
         }
         $this->db->query("DELETE FROM bank_transfers WHERE id=?", $id);
     }
+
+    public function addEbilling($val){
+        $this->db->query("UPDATE paiement SET paymentsystem = '".$val['paymentsystem']."', transactionid = '".$val['transactionid']."', billingid = '".$val['billingid']."', amount = '".$val['amount']."', etat = '".$val['etat']."'  WHERE external_reference = ".$val['reference']);
+        return true;
+    }
 }

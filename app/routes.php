@@ -160,6 +160,9 @@ $request->any('payment/method', array('uses' => 'payment@load'));
 
 $request->any('payment/pvit', array('uses' => 'payment@pvit'));
 
+$request->any('payment/ebilling', array('uses' => 'payment@ebilling'));
+$request->any('payment/notification_eb', array('uses' => 'payment@notificaation_eb'));
+
 
 $request->any('message/form', array('uses' => 'message@form'));
 $request->any('message/search', array('uses' => 'message@search'));
