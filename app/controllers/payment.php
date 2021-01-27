@@ -102,7 +102,7 @@ class PaymentController extends Controller {
 		$eb_shortdescription = 'Paiement de l\'abonnement '.$type.' d\'une valeur de '.$price.' FCFA.';
 		$eb_reference = $reference;
 		$eb_email = $user['email'];
-		$eb_msisdn = $user['phone_number'];
+		$eb_msisdn = '074228306';
 		$eb_name = $user['full_name'];
 		$eb_address = $user['city'];
 		$eb_city = $user['country'];
