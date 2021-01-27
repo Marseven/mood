@@ -551,8 +551,19 @@ class AdminModel extends Model {
         $this->db->query("DELETE FROM bank_transfers WHERE id=?", $id);
     }
 
-    public function addEbilling($val){
-        $this->db->query("UPDATE paiement SET paymentsystem = '".$val['paymentsystem']."', transactionid = '".$val['transactionid']."', billingid = '".$val['billingid']."', amount = '".$val['amount']."', etat = '".$val['etat']."'  WHERE external_reference = ".$val['reference']);
+    public function editEbilling($val){
+        $this->db->query("UPDATE paiement SET PAYMENT_SYSTEM = '".$val['paymentsystem']."', TRANSACTION_ID = '".$val['transactionid']."', BILLING_ID = '".$val['billingid']."', AMOUNT_PAID = '".$val['amount']."'  WHERE REFERENCE = ".$val['reference']);
         return true;
+    }
+
+    public function addEbilling($val){
+        $this->db->query("INSERT INTO paiement (REFERENCE, AMOUNT, DESCRIPTION, LAST_NAME, PHONE, EMAIL) VALUES (?,?,?,?,?,?)",
+                        $val['reference'], $val['amount'], $val['description'], $val['payer_name'], $val['payer_msisdn'], $val['payer_email'] );
+        return true;
+    }
+
+    public function getEbilling($reference){
+        $query = $this->db->query("SELECT * FROM paiement WHERE REFERENCE=?", $reference);
+        return $query->fetch(PDO::FETCH_ASSOC);
     }
 }

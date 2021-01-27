@@ -78,6 +78,8 @@ class PaymentController extends Controller {
         $price = $this->request->input('price');
         $reference = reference(6);
 
+        $user = $this->model('user')->authUser;
+
         // =============================================================
 		// ===================== Setup Attributes ======================
 		// =============================================================
@@ -94,40 +96,40 @@ class PaymentController extends Controller {
 		// POST URL
 		$POST_URL = 'http://sandbox.billing-easy.net';
 
-		// Check mandatory attributes have been supplied in Http Session
-        $user = $this->Auth->user();
-        $datas = $this->request->getData();
 
         // Fetch all data (including those not optional) from session
-		$eb_amount = $datas['montant'];
-		$eb_shortdescription = 'Paiement de l\'abonnement '.$datas['code_medecin'].' d\'une valeur de '.$datas['montant'].' FCFA.';
-		$eb_reference = $datas['code_medecin'].'-'.$reference;
+		$eb_amount = $price;
+		$eb_shortdescription = 'Paiement de l\'abonnement '.$type.' d\'une valeur de '.$price.' FCFA.';
+		$eb_reference = $reference;
 		$eb_email = $user['email'];
-		$eb_msisdn = $user['phone'];
-		$eb_name = $user['last_name'].' '.$user['first_name'];
-		$eb_address = $user['adress'];
-		$eb_city = $user['town'];
-		$eb_detaileddescription = 'Paiement de l\'abonnement '.$datas['code_medecin'].' d\'une valeur de '.$datas['montant'].' FCFA.';
+		$eb_msisdn = $user['phone_number'];
+		$eb_name = $user['full_name'];
+		$eb_address = $user['city'];
+		$eb_city = $user['country'];
+		$eb_detaileddescription = 'Paiement de l\'abonnement '.$type.' d\'une valeur de '.$price.' FCFA.';
 		$eb_additionalinfo = '';
-		$eb_callbackurl = '';
+		$eb_callbackurl = url('payment/eb_call', array('reference' => $reference, 'type' => $type, 'typeid' => $typeId, 'price' => $price));
 
 		// =============================================================
 		// ============== E-Billing server invocation ==================
 		// =============================================================
 		$global_array =
-				[
-						'payer_email' => $eb_email,
-						'payer_msisdn' => $eb_msisdn,
-						'amount' => $eb_amount,
-						'short_description' => $eb_shortdescription,
-						'description' => $eb_detaileddescription,
-						'due_date' => date('d/m/Y', time() + 86400),
-						'external_reference' => $eb_reference,
-						'payer_name' => $eb_name,
-						'payer_address' => $eb_address,
-						'payer_city' => $eb_city,
-						'additional_info' => $eb_additionalinfo
-				];
+        [
+            'payer_email' => $eb_email,
+            'payer_msisdn' => $eb_msisdn,
+            'amount' => $eb_amount,
+            'reference' => $eb_reference,
+            'short_description' => $eb_shortdescription,
+            'description' => $eb_detaileddescription,
+            'due_date' => date('d/m/Y', time() + 86400),
+            'external_reference' => $eb_reference,
+            'payer_name' => $eb_name,
+            'payer_address' => $eb_address,
+            'payer_city' => $eb_city,
+            'additional_info' => $eb_additionalinfo
+        ];
+
+        $this->model('admin')->addEbilling($global_array, true);
 
 		$content = json_encode($global_array);
 		$curl = curl_init($SERVER_URL);
@@ -160,10 +162,41 @@ class PaymentController extends Controller {
         exit();
     }
 
+    public function eb_call(){
+        $type = $this->request->input('type');
+        $typeId = $this->request->input('typeid');
+        $price = $this->request->input('price');
+        $reference = $this->request->input('reference');
+
+        $billing = $this->model('admin')->getEbilling($reference);
+
+        $url = ($type == 'pro' or $type == 'pro-users') ? url('settings/pro') : url();
+        $url = Hook::getInstance()->fire('payment.success.url', $url, array($type, $typeId));
+
+        if ($billing) {
+            $this->model('admin')->addTransaction(array(
+                'amount' =>  $price,
+                'type' => $type,
+                'type_id' => $typeId,
+                'sale_id' => $reference,
+                'name' => $this->model('user')->authUser['full_name'],
+                'email' => $this->model('user')->authUser['email'],
+                'country' => $this->model('user')->authUser['country'],
+                'userid' => $this->model('user')->authId
+            ));
+            Hook::getInstance()->fire('payment.success', null, array($type, $typeId));
+            if (session_get('mobile-pay') == 1) $this->request->request(url('api/pay/success'));
+            $this->request->redirect($url);
+        } else {
+            if (session_get('mobile-pay') == 1) $this->request->request(url('api/pay/failed'));
+            $this->request->redirect(($type == 'pro') ? url('pro') : url());
+        }
+    }
+
     //notification de paiement ebilling en arrière-plan
     public function notificaation_eb(){
         if($this->request->is('post')){
-			if($this->model('admin')->addEbilling($_POST, true)){
+			if($this->model('admin')->editEbilling($_POST, true)){
 				http_response_code(200);
 				echo http_response_code();
 				exit();

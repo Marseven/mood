@@ -161,6 +161,7 @@ $request->any('payment/method', array('uses' => 'payment@load'));
 $request->any('payment/pvit', array('uses' => 'payment@pvit'));
 
 $request->any('payment/ebilling', array('uses' => 'payment@ebilling'));
+$request->any('payment/eb_call', array('uses' => 'payment@eb_call'));
 $request->any('payment/notification_eb', array('uses' => 'payment@notificaation_eb'));
 
 
