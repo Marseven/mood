@@ -12,7 +12,7 @@
     <form action="<?php echo url('payment/ebilling', array('type' => $type, 'typeid' => $typeId, 'price' => $price))?>" method="POST" id="payeForm" >
         <input type="text" name="tel_marchand" class="form-control" placeholder="Numéro de téléphone" required>
         <div class="each">
-            <a name="submitButton" value="PAYER" type="submit"><img style="width: 197px;position:relative;left: -3px;" src="<?php echo assetUrl('assets/images/airtel-moov-payer.png')?>"/></a>
+            <button name="submitButton" value="PAYER" type="submit"><img style="width: 197px;position:relative;left: -3px;" src="<?php echo assetUrl('assets/images/airtel-moov-payer.png')?>"/></button>
         </div>
     </form>
     </div>
