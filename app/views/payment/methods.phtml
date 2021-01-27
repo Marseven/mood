@@ -10,16 +10,16 @@
     
     <div class="each">
     <form action="<?php echo url('payment/ebilling', array('type' => $type, 'typeid' => $typeId, 'price' => $price))?>" method="POST" id="payeForm" >
-        <input type="test" name="tel_marchand" placeholder="Numéro de téléphone" required>
+        <input type="text" name="tel_marchand" class="form-control" placeholder="Numéro de téléphone" required>
         <div class="each">
-            <button name="submitButton" value="PAYER" type="submit" class="btn btn-block btn-lg  mt-2 round-sm" style="width:200px;background-color: #7451eb;margin: auto;font-weight: bold;color:#fff"><img style="width: 197px;position:relative;left: -3px;" src="<?php echo assetUrl('assets/images/airtel-moov-payer.png')?>"/></button>
+            <a name="submitButton" value="PAYER" type="submit"><img style="width: 197px;position:relative;left: -3px;" src="<?php echo assetUrl('assets/images/airtel-moov-payer.png')?>"/></a>
         </div>
     </form>
     </div>
 
     
 
-    <form action="https://mypvit.com/pvit-secure-full-api.kk" method="POST" id="payeForm" >
+    <!--form action="https://mypvit.com/pvit-secure-full-api.kk" method="POST" id="payeForm" >
         <input type="hidden" name="tel_marchand" value="<?php echo config('am_marchand', '')?>">
         <input type="hidden" name="montant" value="<?php echo $price?>">
         <input type="hidden" name="ref" value="<?= $reference ?>">
@@ -41,7 +41,7 @@
         <div class="each">
             <button name="submitButton" value="PAYER" type="submit" class="btn btn-block btn-lg  mt-2 round-sm" style="width:200px;background-color: #7451eb;margin: auto;font-weight: bold;color:#fff"><img style="width:20px" src="<?php echo assetUrl('assets/images/mc.png')?>"/> <?php _l('mobicash')?> </button>
         </div>
-    </form>
+    </form-->
     
     <?php Hook::getInstance()->fire('payment.method', null, array($price,$type,$typeId,$detail))?>
 </div>
