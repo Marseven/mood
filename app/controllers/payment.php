@@ -99,14 +99,14 @@ class PaymentController extends Controller {
 
         // Fetch all data (including those not optional) from session
 		$eb_amount = $price;
-		$eb_shortdescription = 'Paiement de l\'abonnement '.$type.' d\'une valeur de '.$price.' FCFA.';
+		$eb_shortdescription = 'Paiement sur Mood d\'une valeur de '.$price.' FCFA.';
 		$eb_reference = $reference;
 		$eb_email = $user['email'];
 		$eb_msisdn = $_POST['tel_marchand'];
 		$eb_name = $user['full_name'];
 		$eb_address = $user['city'];
 		$eb_city = $user['country'];
-		$eb_detaileddescription = 'Paiement de l\'abonnement '.$type.' d\'une valeur de '.$price.' FCFA.';
+		$eb_detaileddescription = 'Paiement sur Mood d\'une valeur de '.$price.' FCFA.';
 		$eb_additionalinfo = '';
 		$eb_callbackurl = url('payment/eb_call', array('reference' => $reference, 'type' => $type, 'typeid' => $typeId, 'price' => $price));
 
