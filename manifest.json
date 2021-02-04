@@ -1,22 +1,22 @@
 {
-    "short_name": "Mood",
-    "name": "Mood",
-    "icons": [
-      {
-        "src": "assets/images/ico-192.png",
-        "type": "image/png",
-        "sizes": "192x192"
-      },
-      {
-        "src": "assets/images/ico-512.png",
-        "type": "image/png",
-        "sizes": "512x512"
-      }
-    ],
-    "start_url": "/",
-    "background_color": "#fff",
-    "display": "standalone",
-    "theme_color": "#7451eb",
-    "orientation": "portrait",
-    "scope": "/"
-  }
+  "short_name": "Mood",
+  "name": "Mood",
+  "icons": [
+    {
+      "src": "assets/images/ico-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "assets/images/ico-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#fff",
+  "display": "standalone",
+  "theme_color": "#7451eb",
+  "orientation": "portrait",
+  "scope": "/"
+}
