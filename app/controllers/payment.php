@@ -94,7 +94,7 @@ class PaymentController extends Controller {
 		$SHARED_KEY = 'a4e80739-61ea-430e-8ddc-db9eb7bf0783';
 
 		// POST URL
-		$POST_URL = 'https://sandbox.billing-easy.net';
+		$POST_URL = 'https://test.billing-easy.net';
 
 
         // Fetch all data (including those not optional) from session
